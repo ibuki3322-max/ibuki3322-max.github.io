@@ -486,7 +486,7 @@
 
         /* Feature Slider Styles */
         .features {
-            padding: 100px 0;
+            padding: 50px 0 100px;
             overflow: hidden;
         }
 
@@ -607,7 +607,9 @@
             padding: 40px;
             box-shadow: 0 32px 80px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border);
-            aspect-ratio: 1;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            max-width: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -615,8 +617,8 @@
 
         .scanner-box {
             position: relative;
-            width: 80%;
-            height: 80%;
+            width: 90%;
+            height: 90%;
             border: 2px dashed rgba(46, 125, 50, 0.2);
             border-radius: 20px;
             display: flex;
@@ -1077,8 +1079,15 @@
             }
 
             .ai-visual {
+                width: 90%;
                 max-width: 400px;
                 margin: 0 auto;
+                padding: 32px;
+            }
+
+            .prediction-content {
+                grid-template-columns: 1fr;
+                gap: 56px;
             }
         }
 
@@ -1146,6 +1155,47 @@
             .floating-badge.b4 {
                 bottom: 16%;
                 right: 2%;
+            }
+
+            .ai-visual {
+                padding: 20px;
+            }
+
+            .prediction-card {
+                padding: 24px;
+            }
+
+            .prediction-value {
+                font-size: 40px;
+            }
+
+            .prediction-text h2 {
+                font-size: 30px;
+            }
+
+            .tag {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            .tag.t1 {
+                top: 12%;
+                right: 5%;
+            }
+
+            .tag.t2 {
+                top: 40%;
+                left: 5%;
+            }
+
+            .tag.t3 {
+                bottom: 15%;
+                right: 10%;
+            }
+
+            .tag.t4 {
+                top: 8%;
+                left: 15%;
             }
 
             .badge-value {
