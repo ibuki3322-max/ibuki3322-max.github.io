@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,36 +30,21 @@
                 extend: {
                     fontFamily: {
                         sans: ['"Inter"', '"Noto Sans JP"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     animation: {
                         'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'blob': 'blob 10s infinite', // ゆっくりとした有機的な動き
                     },
                     keyframes: {
                         fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     },
                     boxShadow: {
-                        'soft-xl': '0 20px 40px -10px rgba(0, 0, 0, 0.08), 0 0 20px -5px rgba(0, 0, 0, 0.02)',
-                        'glow': '0 0 20px rgba(59, 130, 246, 0.15)',
+                        'sharp': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'sharp-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
                     },
-                    colors: {
-                        // パステルカラーパレット
-                        pastel: {
-                            blue: '#E0F2FE',
-                            purple: '#F3E8FF',
-                            teal: '#CCFBF1',
-                            indigo: '#E0E7FF'
-                        }
-                    }
                 }
             }
         }
@@ -72,15 +57,14 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* アニメーション遅延用ユーティリティ */
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
-        .animation-delay-6000 {
-            animation-delay: 6s;
+        /* グリッド背景 */
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
 
         /* 3D Tilt Container */
@@ -94,53 +78,39 @@
         }
 
         .glass-panel {
-            background: rgba(255, 255, 255, 0.65); /* 透明度を少し上げて背景を透かす */
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
 
         .list-item-hover {
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
         }
         .list-item-hover:hover {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(241, 245, 249, 0.8);
             transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        /* Button Hover Shine */
-        .btn-shine {
+        /* Tech Button Style */
+        .btn-tech {
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .btn-shine::after {
+        .btn-tech::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 50%;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-            transform: skewX(-20deg) translateX(-150%);
-            transition: transform 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
         }
-        .btn-shine:hover::after {
-            transform: skewX(-20deg) translateX(250%);
-            transition: transform 0.7s;
-        }
-
-        /* マウスストーカー用の光 */
-        .cursor-glow {
-            pointer-events: none;
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            mix-blend-mode: overlay;
-            transition: opacity 0.3s ease;
+        .btn-tech:hover::before {
+            left: 100%;
         }
     </style>
 </head>
@@ -150,19 +120,138 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        // 背景のアニメーション要素
-        const DynamicBackground = () => {
-            return (
-                <div className="fixed inset-0 w-full h-full -z-20 overflow-hidden bg-slate-50">
-                    {/* ベースの淡いグラデーション */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 opacity-80"></div>
+        // パーティクルアニメーション背景
+        const ParticleBackground = () => {
+            const canvasRef = useRef(null);
 
-                    {/* 浮遊するオーブ（パステルカラー） */}
-                    <div className="absolute top-0 -left-4 w-96 h-96 bg-pastel-blue rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-                    <div className="absolute top-0 -right-4 w-96 h-96 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-                    <div className="absolute -bottom-32 left-20 w-96 h-96 bg-pastel-teal rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
-                    <div className="absolute -bottom-40 right-20 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-6000"></div>
-                </div>
+            useEffect(() => {
+                const canvas = canvasRef.current;
+                const ctx = canvas.getContext('2d');
+                let animationFrameId;
+                let particles = [];
+                let mouse = { x: null, y: null, radius: 150 };
+
+                const resizeCanvas = () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    initParticles();
+                };
+
+                class Particle {
+                    constructor(x, y, directionX, directionY, size, color) {
+                        this.x = x;
+                        this.y = y;
+                        this.directionX = directionX;
+                        this.directionY = directionY;
+                        this.size = size;
+                        this.color = color;
+                    }
+
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                    }
+
+                    update() {
+                        if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                        if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+
+                        // マウスインタラクション
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < mouse.radius + this.size) {
+                            if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 2;
+                            if (mouse.x > this.x && this.x > this.size * 10) this.x -= 2;
+                            if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 2;
+                            if (mouse.y > this.y && this.y > this.size * 10) this.y -= 2;
+                        }
+
+                        this.x += this.directionX;
+                        this.y += this.directionY;
+                        this.draw();
+                    }
+                }
+
+                const initParticles = () => {
+                    particles = [];
+                    // パーティクル数を調整（多すぎると重くなるため）
+                    let numberOfParticles = (canvas.width * canvas.height) / 12000;
+                    for (let i = 0; i < numberOfParticles; i++) {
+                        let size = (Math.random() * 2) + 1;
+                        let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+                        let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+                        let directionX = (Math.random() * 0.4) - 0.2; // 動きをゆっくりに
+                        let directionY = (Math.random() * 0.4) - 0.2;
+                        let color = '#94a3b8'; // スレートグレー
+                        particles.push(new Particle(x, y, directionX, directionY, size, color));
+                    }
+                };
+
+                const connect = () => {
+                    let opacityValue = 1;
+                    for (let a = 0; a < particles.length; a++) {
+                        for (let b = a; b < particles.length; b++) {
+                            let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x))
+                                + ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                            
+                            // 線をつなぐ距離
+                            if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                                opacityValue = 1 - (distance / 20000);
+                                ctx.strokeStyle = 'rgba(148, 163, 184,' + opacityValue * 0.5 + ')'; // 薄いグレーの線
+                                ctx.lineWidth = 1;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[a].x, particles[a].y);
+                                ctx.lineTo(particles[b].x, particles[b].y);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                };
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    for (let i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                    }
+                    connect();
+                };
+
+                const handleMouseMove = (e) => {
+                    mouse.x = e.x;
+                    mouse.y = e.y;
+                };
+
+                const handleMouseLeave = () => {
+                    mouse.x = undefined;
+                    mouse.y = undefined;
+                };
+
+                window.addEventListener('resize', resizeCanvas);
+                window.addEventListener('mousemove', handleMouseMove);
+                window.addEventListener('mouseout', handleMouseLeave);
+
+                resizeCanvas();
+                animate();
+
+                return () => {
+                    window.removeEventListener('resize', resizeCanvas);
+                    window.removeEventListener('mousemove', handleMouseMove);
+                    window.removeEventListener('mouseout', handleMouseLeave);
+                    cancelAnimationFrame(animationFrameId);
+                };
+            }, []);
+
+            return (
+                <>
+                    <div className="fixed inset-0 w-full h-full -z-20 bg-[#f8fafc] grid-bg"></div>
+                    <canvas ref={canvasRef} className="fixed inset-0 w-full h-full -z-10 block" />
+                </>
             );
         };
 
@@ -172,18 +261,14 @@
 
             const handleMouseMove = (e) => {
                 if (!cardRef.current) return;
-
                 const card = cardRef.current;
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -2;
-                const rotateY = ((x - centerX) / centerX) * 2;
-
+                const rotateX = ((y - centerY) / centerY) * -1.5;
+                const rotateY = ((x - centerX) / centerX) * 1.5;
                 setRotation({ x: rotateX, y: rotateY });
             };
 
@@ -200,9 +285,7 @@
                     <div 
                         ref={cardRef}
                         className="tilt-card"
-                        style={{ 
-                            transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` 
-                        }}
+                        style={{ transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` }}
                     >
                         {children}
                     </div>
@@ -212,74 +295,50 @@
 
         const App = () => {
             const [mounted, setMounted] = useState(false);
-            const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
             useEffect(() => {
                 setMounted(true);
                 if (window.lucide) {
                     window.lucide.createIcons();
                 }
-
-                // マウス位置の追跡
-                const handleMouseMove = (e) => {
-                    setMousePos({ x: e.clientX, y: e.clientY });
-                };
-                window.addEventListener('mousemove', handleMouseMove);
-
-                return () => {
-                    window.removeEventListener('mousemove', handleMouseMove);
-                };
             }, []);
 
             return (
                 <div className="relative min-h-screen flex flex-col justify-center items-center p-6 font-sans overflow-hidden">
                     
-                    <DynamicBackground />
-                    
-                    {/* マウスストーカー（光） */}
-                    <div 
-                        className="cursor-glow hidden md:block"
-                        style={{ left: mousePos.x, top: mousePos.y }}
-                    ></div>
+                    <ParticleBackground />
 
                     <div className={`w-full flex flex-col items-center transition-all duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
                         
                         {/* Profile Header */}
                         <header className={`text-center mb-10 transition-all duration-700 delay-100 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} z-10`}>
-                            <div className="relative inline-block group cursor-default">
-                                {/* アイコン裏の光も動的に */}
-                                <div className="absolute inset-0 bg-blue-400 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"></div>
-                                <div className="relative p-5 rounded-full bg-white/60 backdrop-blur-sm border border-white/80 shadow-sm mb-5">
-                                    <i data-lucide="user" className="w-8 h-8 text-slate-700"></i>
-                                </div>
-                            </div>
-                            <h1 className="text-4xl font-bold tracking-tight mb-2 text-slate-800 drop-shadow-sm">
+                            <h1 className="text-4xl font-bold tracking-tight mb-2 text-slate-900 font-mono">
                                 Ibuki Yoshida
                             </h1>
-                            <p className="text-slate-500 font-medium tracking-wide">Developer & Creator</p>
+                            <p className="text-slate-500 font-medium tracking-wide text-sm uppercase">Developer & Creator</p>
                         </header>
 
                         {/* Main Content - 3D Tilt Card */}
                         <TiltCard>
-                            <main className={`glass-panel rounded-3xl p-8 shadow-soft-xl relative overflow-hidden group transition-all duration-700 delay-200 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+                            <main className={`glass-panel rounded-xl p-8 relative overflow-hidden group transition-all duration-700 delay-200 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
                                 
                                 <div className="flex flex-col h-full relative z-10">
                                     <div className="flex items-center justify-between mb-8">
                                         <div className="flex items-center space-x-2">
-                                            <span className="flex h-2.5 w-2.5 relative">
-                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                                            <span className="flex h-2 w-2 relative">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-800"></span>
                                             </span>
-                                            <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">
+                                            <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">
                                                 Featured App
                                             </span>
                                         </div>
                                     </div>
 
-                                    <div className="mb-6">
-                                        <h2 className="text-3xl font-bold text-slate-800 mb-2 tracking-tight">ぱーそな</h2>
-                                        <p className="text-sm font-medium text-slate-500 flex items-center">
-                                            AIで食事記録＆体重予測
+                                    <div className="mb-6 border-l-2 border-slate-900 pl-4">
+                                        <h2 className="text-3xl font-bold text-slate-900 mb-1 tracking-tight">ぱーそな</h2>
+                                        <p className="text-xs font-mono font-medium text-slate-500">
+                                            AI DIET ASSISTANT
                                         </p>
                                     </div>
 
@@ -293,10 +352,8 @@
                                             "1ヶ月後の体重予測",
                                             "専属AIトレーナーに相談"
                                         ].map((feature, index) => (
-                                            <li key={index} className="list-item-hover flex items-center text-sm text-slate-700 p-2 rounded-lg -ml-2">
-                                                <div className="mr-3 p-1.5 rounded-full bg-blue-50 text-blue-600">
-                                                    <i data-lucide="check" className="w-3.5 h-3.5"></i>
-                                                </div>
+                                            <li key={index} className="list-item-hover flex items-center text-sm text-slate-700 p-2 rounded -ml-2">
+                                                <i data-lucide="check-circle-2" className="w-4 h-4 mr-3 text-slate-800"></i>
                                                 {feature}
                                             </li>
                                         ))}
@@ -307,7 +364,7 @@
                                             href="https://apps.apple.com/jp/app/%E3%81%B1%E3%83%BC%E3%81%9D%E3%81%AA-%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88-%E9%A3%9F%E4%BA%8B%E4%BD%93%E9%87%8D%E8%A8%98%E9%8C%B2/id6755952836" 
                                             target="_blank" 
                                             rel="noopener"
-                                            className="btn-shine w-full py-4 px-6 bg-slate-900 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center group/btn"
+                                            className="btn-tech w-full py-4 px-6 bg-slate-900 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center group/btn"
                                         >
                                             <span className="mr-2">App Storeで見る</span>
                                             <i data-lucide="arrow-right" className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
@@ -317,7 +374,7 @@
                                             href="persona.html" 
                                             target="_blank" 
                                             rel="noopener"
-                                            className="w-full py-4 px-6 bg-white/50 hover:bg-white/80 text-slate-600 font-medium rounded-xl border border-slate-200/60 hover:border-slate-300 transition-all duration-200 flex items-center justify-center backdrop-blur-sm"
+                                            className="w-full py-4 px-6 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-lg border border-slate-300 hover:border-slate-400 transition-all duration-200 flex items-center justify-center"
                                         >
                                             ホームページを見る
                                         </a>
@@ -327,7 +384,7 @@
                         </TiltCard>
 
                         <footer className={`mt-12 text-center transition-all duration-700 delay-300 ${mounted ? 'opacity-100' : 'opacity-0'} z-10`}>
-                            <p className="text-xs text-slate-400/80 font-medium">
+                            <p className="text-xs text-slate-400 font-mono">
                                 © 2025 Ibuki Yoshida
                             </p>
                         </footer>
