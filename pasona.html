@@ -571,75 +571,198 @@
             }
         }
 
-        /* How it Works */
-        .how-it-works {
+        /* AI Analysis Section Styles */
+        .ai-analysis {
             padding: 140px 40px;
-            background: linear-gradient(180deg, var(--background) 0%, var(--surface) 100%);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-top: 64px;
-        }
-
-        .step {
-            text-align: center;
+            background: #fdfdfd;
             position: relative;
+            overflow: hidden;
         }
 
-        .step::after {
+        .ai-analysis::before {
             content: '';
             position: absolute;
-            top: 32px;
-            right: -20px;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), transparent);
-            opacity: 0.3;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(46, 125, 50, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(46, 125, 50, 0.03) 0%, transparent 40%);
+            pointer-events: none;
         }
 
-        .step:last-child::after {
-            display: none;
+        .ai-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .step-number {
-            width: 68px;
-            height: 68px;
-            background: var(--surface);
-            border: 2px solid var(--primary);
-            border-radius: 50%;
+        .ai-visual {
+            position: relative;
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 0 auto 24px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(46, 125, 50, 0.1);
         }
 
-        .step:hover .step-number {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.3);
+        .scanner-box {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            border: 2px dashed rgba(46, 125, 50, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
-        .step-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
+        .scanner-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            box-shadow: 0 0 15px var(--primary);
+            animation: scan 3s ease-in-out infinite;
+            z-index: 2;
         }
 
-        .step-description {
+        @keyframes scan {
+
+            0%,
+            100% {
+                top: 0%;
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            95% {
+                opacity: 1;
+            }
+
+            50% {
+                top: 100%;
+            }
+        }
+
+        .food-outline {
+            width: 60%;
+            height: 60%;
+            stroke: var(--primary);
+            stroke-width: 1;
+            fill: none;
+            opacity: 0.1;
+            transition: all 0.5s ease;
+        }
+
+        .nutrient-tags {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .tag {
+            position: absolute;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
             font-size: 13px;
-            color: var(--text-secondary);
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--primary);
         }
 
-        /* Prediction Section */
+        .ai-analysis.visible .tag {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .tag.t1 {
+            top: 15%;
+            right: 10%;
+            transition-delay: 0.5s;
+        }
+
+        .tag.t2 {
+            top: 40%;
+            left: 10%;
+            transition-delay: 1s;
+        }
+
+        .tag.t3 {
+            bottom: 20%;
+            right: 15%;
+            transition-delay: 1.5s;
+        }
+
+        .tag.t4 {
+            top: 10%;
+            left: 20%;
+            transition-delay: 0.8s;
+        }
+
+        .ai-text h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .ai-feature-list {
+            margin-top: 40px;
+            display: grid;
+            gap: 24px;
+        }
+
+        .ai-feature-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .ai-feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(46, 125, 50, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .ai-feature-content h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ai-feature-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Prediction Section (keep as is but update padding) */
         .prediction {
             padding: 140px 40px;
             background: var(--surface);
@@ -948,9 +1071,14 @@
                 display: none;
             }
 
-            .prediction-content {
+            .ai-container {
                 grid-template-columns: 1fr;
                 gap: 56px;
+            }
+
+            .ai-visual {
+                max-width: 400px;
+                margin: 0 auto;
             }
         }
 
@@ -1040,7 +1168,7 @@
             }
 
             .features,
-            .how-it-works,
+            .ai-analysis,
             .prediction,
             .chat-section,
             .cta-section,
@@ -1050,7 +1178,7 @@
             }
 
             .features,
-            .how-it-works,
+            .ai-analysis,
             .prediction,
             .chat-section {
                 padding-top: 100px;
@@ -1098,7 +1226,7 @@
             <div class="nav-center">
                 <ul class="nav-links">
                     <li><a href="#features">機能</a></li>
-                    <li><a href="#how-it-works">使い方</a></li>
+                    <li><a href="#ai-analysis">AI解析</a></li>
                     <li><a href="#prediction">体重予測</a></li>
                 </ul>
             </div>
@@ -1336,33 +1464,61 @@
         </div>
     </section>
 
-    <!-- How it Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-container">
-            <div class="section-header fade-up">
-                <h2 class="section-title">使い方</h2>
-                <p class="section-subtitle">今日からすぐに始められます。</p>
+    <!-- AI Analysis Section -->
+    <section class="ai-analysis" id="ai-analysis">
+        <div class="ai-container">
+            <div class="ai-visual fade-up">
+                <div class="scanner-box">
+                    <div class="scanner-line"></div>
+                    <svg class="food-outline" viewBox="0 0 100 100">
+                        <path
+                            d="M50 20 C30 20 20 40 20 60 C20 80 40 85 50 85 C60 85 80 80 80 60 C80 40 70 20 50 20 Z" />
+                        <path d="M50 15 L50 25 M35 18 L40 25 M65 18 L60 25" />
+                    </svg>
+                </div>
+                <div class="nutrient-tags">
+                    <div class="tag t1">タンパク質 24g</div>
+                    <div class="tag t2">脂質 12g</div>
+                    <div class="tag t3">炭水化物 44g</div>
+                    <div class="tag t4">542 kcal</div>
+                </div>
             </div>
-            <div class="steps">
-                <div class="step fade-up">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">ダウンロード</h3>
-                    <p class="step-description">App Storeから無料で</p>
+            <div class="ai-text fade-up">
+                <div class="badge-icon" style="margin-bottom: 16px; background: rgba(46, 125, 50, 0.1);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
                 </div>
-                <div class="step fade-up">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">目標を設定</h3>
-                    <p class="step-description">最適な目標を自動算出</p>
-                </div>
-                <div class="step fade-up">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">食事を撮影</h3>
-                    <p class="step-description">カロリーを自動計算</p>
-                </div>
-                <div class="step fade-up">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">予測を確認</h3>
-                    <p class="step-description">1ヶ月後の体重がわかる</p>
+                <h2>一瞬で、すべてを読み解く。</h2>
+                <p>最新の画像認識AIが、食事内容をミリ単位で解析。単なるカロリー計算に留まらず、主要な栄養素バランスまで瞬時に可視化します。</p>
+                <div class="ai-feature-list">
+                    <div class="ai-feature-item">
+                        <div class="ai-feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-10h-9l1-8z" />
+                            </svg>
+                        </div>
+                        <div class="ai-feature-content">
+                            <h4>超高速解析</h4>
+                            <p>写真をアップロードしてから解析完了まで、わずか数百ミリ秒。待たせることはありません。</p>
+                        </div>
+                    </div>
+                    <div class="ai-feature-item">
+                        <div class="ai-feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
+                        </div>
+                        <div class="ai-feature-content">
+                            <h4>日本特化型データベース</h4>
+                            <p>日本の食品成分表（八訂）と独自の膨大な学習データにより、和食からコンビニ飯まで正確に判別します。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1498,6 +1654,10 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Add visible class to ai-analysis section specifically if needed
+                    if (entry.target.classList.contains('ai-analysis')) {
+                        entry.target.classList.add('visible');
+                    }
                 }
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
@@ -1512,10 +1672,6 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-    </script>
-</body>
-
-</html>
     </script>
 </body>
 
