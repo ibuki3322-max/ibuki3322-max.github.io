@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>applock - スマホ中毒を、スタイリッシュに解決。</title>
+    <meta name="description" content="applockは、集中力を最大化するためのモダンなスクリーンタイム管理アプリです。今すぐ集中、ルーティン、統計・ログ、そして最強モードで、あなたの時間をコントロールしましょう。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0A0A0A;
+            --card-dark: #1C1C1E;
+            --accent-blue: #007AFF;
+            --accent-cyan: #32ADE6;
+            --accent-water: #4FACFE;
+            --primary-gradient: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%);
+            --water-gradient: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
+            --text-primary: #F5F5F7;
+            --text-secondary: #86868B;
+            --glass: rgba(28, 28, 30, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Elements for dynamic background */
+        .bg-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-1 { top: -10%; left: -10%; background: var(--accent-water); }
+        .blob-2 { bottom: -10%; right: -10%; background: var(--accent-cyan); animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 30%; background: #AF52DE; animation-delay: -10s; }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(100px, 100px) scale(1.2); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-water);
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 40px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--water-gradient);
+            color: white;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.6);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-water);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            background: var(--water-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Premium Section */
+        .premium {
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0), rgba(0, 122, 255, 0.1), rgba(10,10,10,0));
+            border-radius: 50px;
+        }
+
+        .premium-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(175, 82, 222, 0.2);
+            color: #DA22FF;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 12px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .premium-title {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 20px;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #444;
+        }
+
+        /* Animations on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 60px;
+            }
+            .hero-title { font-size: 48px; }
+            .features-grid { grid-template-columns: 1fr; }
+            header { padding: 20px; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+        <div class="logo">applock</div>
+        <nav>
+            <a href="#features">機能</a>
+            <a href="#premium">プレミアム</a>
+            <a href="mailto:support@example.com">お問い合わせ</a>
+            <a href="#" class="btn btn-primary" style="padding: 10px 20px; margin-left: 20px;">今すぐ開始</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">スマホ中毒を、<br>スタイリッシュに解決。</h1>
+            <p class="hero-subtitle">applockは、ただの規制アプリではありません。あなたの「集中したい」という意志をテクノロジーでサポートし、理想のルーティンを構築するパートナーです。</p>
+            <a href="#" class="btn btn-primary">App Store でダウンロード</a>
+        </div>
+        <div class="hero-image">
+            <img src="brain/80ee0af0-c1bf-4a60-a6b8-e0702d72b64b/applock_hero_mockup_1769971037462.png" alt="applock UI Mockup">
+        </div>
+    </section>
+
+    <section id="features" class="reveal">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 36px; font-weight: 900;">圧倒的な集中力を、その手に。</h2>
+            <p style="color: var(--text-secondary);">シンプルかつ強力な機能で、あなたのデバイス利用を最適化します。</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡️</div>
+                <h3 class="feature-title">今すぐ集中</h3>
+                <p class="feature-desc">ワンタップで誘惑をシャットアウト。必要な時間だけ、特定のアプリを完全にブロックします。タイマー終了まで、解除はできません。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3 class="feature-title">ルーティン管理</h3>
+                <p class="feature-desc">仕事中、学習時間、就寝前。あなたのスケジュールに合わせて自動的にアプリをロック。意志の力に頼らない習慣化を実現します。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">統計とログ</h3>
+                <p class="feature-desc">どれだけ集中できたか、何回誘惑に勝ったかを可視化。レベルアップシステムで、日々の成長を楽しみながら続けられます。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="premium" class="premium reveal">
+        <span class="premium-tag">Premium Plan</span>
+        <h2 class="premium-title">最強モードで、<br>妥協を許さない自分へ。</h2>
+        <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
+            「最強モード」は、デバイスの設定変更やアンインストールによる回避を極限まで制限します。
+            自分を追い込み、真の成果を出す人のための究極のアップグレード。
+        </p>
+        <div style="background: var(--glass); display: inline-block; padding: 40px; border-radius: 30px; border: 1px solid var(--glass-border);">
+            <ul style="text-align: left; list-style: none; margin-bottom: 30px; font-weight: 700;">
+                <li style="margin-bottom: 10px;">✨ 広告の完全非表示</li>
+                <li style="margin-bottom: 10px;">🛡️ アンインストール防止機能</li>
+                <li style="margin-bottom: 10px;">☁️ iCloud デバイス間同期</li>
+                <li style="margin-bottom: 10px;">🚀 全てのプレミアム機能の解放</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="background: var(--primary-gradient);">プレミアムを詳しく見る</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 20px;">applock</div>
+        <div class="footer-links">
+            <a href="terms_of_service.txt">利用規約</a>
+            <a href="privacy_policy.txt">プライバシーポリシー</a>
+            <a href="tokushouho.txt">特定商取引法に基づく表記</a>
+        </div>
+        <p class="copyright">&copy; 2026 applock Team. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Reveal elements on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal(); // Check on load
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
