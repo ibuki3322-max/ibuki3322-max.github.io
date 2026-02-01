@@ -383,6 +383,66 @@
                             </main>
                         </TiltCard>
 
+                        <TiltCard>
+    <main className={`glass-panel rounded-xl p-8 relative overflow-hidden group transition-all duration-700 delay-200 ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+        
+        <div className="flex flex-col h-full relative z-10">
+            <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center space-x-2">
+                    <span className="flex h-2 w-2 relative">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-800"></span>
+                    </span>
+                    <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase font-mono">
+                        Featured App
+                    </span>
+                </div>
+            </div>
+            <div className="mb-6 border-l-2 border-slate-900 pl-4">
+                <h2 className="text-3xl font-bold text-slate-900 mb-1 tracking-tight">applock - 集中 -</h2>
+                <p className="text-xs font-mono font-medium text-slate-500">
+                    SMART FOCUS MANAGER
+                </p>
+            </div>
+            <p className="text-slate-600 text-[15px] leading-relaxed mb-8">
+                意志の力に頼らず、誘惑を遮断して本来の集中力を引き出します。ルーティン化と統計であなたの習慣をデザインするパートナー。
+            </p>
+            <ul className="space-y-3 mb-10">
+                {[
+                    "今すぐ集中でアプリを即時遮断",
+                    "ルーティンによる自動ブロック",
+                    "統計とレベルで成長を可視化"
+                ].map((feature, index) => (
+                    <li key={index} className="list-item-hover flex items-center text-sm text-slate-700 p-2 rounded -ml-2">
+                        <i data-lucide="check-circle-2" className="w-4 h-4 mr-3 text-slate-800"></i>
+                        {feature}
+                    </li>
+                ))}
+            </ul>
+            <div className="flex flex-col gap-3 mt-auto">
+                <a 
+                    href="https://apps.apple.com/jp/app/%E3%82%A2%E3%83%97%E3%83%AA%E3%83%AD%E3%83%83%E3%82%AF-%E9%9B%86%E4%B8%AD/id6758110297" 
+                    target="_blank" 
+                    rel="noopener"
+                    className="btn-tech w-full py-4 px-6 bg-slate-900 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center group/btn"
+                >
+                    <span className="mr-2">App Storeで見る</span>
+                    <i data-lucide="arrow-right" className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
+                </a>
+                
+                <a 
+                    href="index.html" 
+                    target="_blank" 
+                    rel="noopener"
+                    className="w-full py-4 px-6 bg-white hover:bg-slate-50 text-slate-700 font-medium rounded-lg border border-slate-300 hover:border-slate-400 transition-all duration-200 flex items-center justify-center"
+                >
+                    ホームページを見る
+                </a>
+            </div>
+        </div>
+    </main>
+</TiltCard>
+
                         <footer className={`mt-12 text-center transition-all duration-700 delay-300 ${mounted ? 'opacity-100' : 'opacity-0'} z-10`}>
                             <p className="text-xs text-slate-400 font-mono">
                                 © 2025 Ibuki Yoshida
