@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <title>オニラン！ - オンラインおにごっこ - iOSアプリ詳細 | Ibuki Yoshida</title>
+    <meta name="description" content="みんなが知ってる「鬼ごっこ」を、そのまま3Dゲームになりました。">
+    <meta name="keywords" content="オニラン！ - オンラインおにごっこ, iOSアプリ, iPhoneアプリ, Ibuki Yoshida, App Store">
+    <meta name="author" content="Ibuki Yoshida">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6790093033.html">
+    <meta property="og:title" content="オニラン！ - オンラインおにごっこ - iOSアプリ詳細">
+    <meta property="og:description" content="みんなが知ってる「鬼ごっこ」を、そのまま3Dゲームになりました。">
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/d3/3d/c4d33d09-f1fe-3583-0510-50d06b623dc4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="オニラン！ - オンラインおにごっこ - iOSアプリ詳細">
+    <meta property="twitter:description" content="みんなが知ってる「鬼ごっこ」を、そのまま3Dゲームになりました。">
+    <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/d3/3d/c4d33d09-f1fe-3583-0510-50d06b623dc4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+
+    <!-- Fonts: Apple System Font + Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Noto Sans JP", "Hiragino Sans", sans-serif;
+            background-color: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: #0071E3;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        /* Navigation */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #0071E3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.15s ease;
+        }
+        .nav-back:hover {
+            opacity: 0.8;
+        }
+        .brand-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1D1D1F;
+            text-decoration: none;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.95rem;
+            border-radius: 9999px;
+            background: #0071E3;
+            color: #FFFFFF;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+        }
+        .btn-store:hover {
+            background: #0077ED;
+        }
+        .btn-store:active {
+            transform: scale(0.97);
+        }
+
+        /* App Header Section */
+        .app-header-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.6rem 1.25rem;
+                gap: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .main-app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 640px) {
+            .main-app-icon {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .app-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #86868B;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .app-name-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 640px) {
+            .app-name-title {
+                font-size: 1.35rem;
+            }
+        }
+        .app-subtitle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071E3;
+            margin-bottom: 1.25rem;
+        }
+        .app-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-meta-pills {
+                justify-content: center;
+            }
+        }
+        .meta-pill {
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F5F5F7;
+            font-size: 0.75rem;
+            color: #515154;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .detail-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .detail-section {
+                padding: 1.4rem 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Screenshots Horizontal Slider */
+        .screenshots-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .screenshot-item {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 640px) {
+            .screenshot-item {
+                flex: 0 0 180px;
+            }
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* Description Body */
+        .desc-content {
+            font-size: 0.92rem;
+            color: #333336;
+            line-height: 1.75;
+            word-break: break-word;
+        }
+
+        /* Info Specifications Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .spec-label {
+            color: #86868B;
+        }
+        .spec-value {
+            color: #1D1D1F;
+            font-weight: 500;
+        }
+
+        /* Related Apps */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #F5F5F7;
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .related-card:hover {
+            background: #EBEBED;
+            transform: translateY(-2px);
+        }
+        .related-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .related-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-genre {
+            font-size: 0.72rem;
+            color: #86868B;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-size: 0.78rem;
+            color: #86868B;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="apple-nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="../index.html" class="nav-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    <span>すべてのアプリ一覧へ</span>
+                </a>
+                
+                <a href="https://apps.apple.com/jp/app/%E3%82%AA%E3%83%8B%E3%83%A9%E3%83%B3-%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%8A%E3%81%AB%E3%81%94%E3%81%A3%E3%81%93/id6790093033?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">
+                    <span>App Storeで入手</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="flex: 1;">
+        
+        <!-- App Header Card -->
+        <div class="app-header-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/d3/3d/c4d33d09-f1fe-3583-0510-50d06b623dc4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="オニラン！ - オンラインおにごっこ アイコン" class="main-app-icon">
+            
+            <div class="app-header-info">
+                <div class="app-category-badge">ゲーム</div>
+                <h1 class="app-name-title">オニラン！ - オンラインおにごっこ</h1>
+                <p class="app-subtitle-text">Games アプリ</p>
+                
+                <div class="app-meta-pills">
+                    <span class="meta-pill">価格: 無料</span>
+                    <span class="meta-pill">対象年齢: 4+</span>
+                    <span class="meta-pill">バージョン: 1.0.3</span>
+                    <span class="meta-pill">iOS 17.6 以降</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots -->
+        
+        <div class="detail-section">
+            <h2 class="section-heading">プレビュー</h2>
+            <div class="screenshots-slider">
+                <div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a6/e8/7d/a6e87dbe-cae8-8398-0817-b766ab59d258/_U30a2_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_U6a2a_Uff09.png/320x480bb.jpg" alt="オニラン！ - オンラインおにごっこ スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1e/53/57/1e53577b-e996-f411-e252-a478300bad55/_U30a2_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_U6a2a_Uff09__U00281_U0029.png/320x480bb.jpg" alt="オニラン！ - オンラインおにごっこ スクリーンショット" loading="lazy" class="screenshot-img"></div>
+            </div>
+        </div>
+        
+
+        <!-- Description -->
+        <div class="detail-section">
+            <h2 class="section-heading">説明</h2>
+            <div class="desc-content">
+                みんなが知ってる「鬼ごっこ」を、そのまま3Dゲームになりました。<br><br>広い立体マップを舞台に、逃げる4人 vs 鬼1人のシンプルな鬼ごっこ対決。<br>一人用のCPU対戦でルールを覚えたら、リアルタイムオンライン対戦で友達や世界中のプレイヤーと駆け引きを楽しめます。<br><br>【あそびかた】<br>・逃げる側は制限時間まで鬼から逃げ切れば勝ち<br>・鬼は制限時間内に全員を捕まえれば勝ち<br>・ジャンプとダッシュを使い分けて、地形を活かして撒こう<br>・鬼の方向がわかるコンパスなど、駆け引きを盛り上げる工夫つき<br><br>【特徴】<br>・広場・森・山・村・川・生け垣迷路など、変化に富んだ立体マップ<br>・段差はジャンプでよじ登り、生け垣は飛び越え、橋を渡って移動<br>・オフラインでも遊べるCPU対戦モード<br>・クイックマッチ／フレンドとのオンライン対戦に対応<br>・一人でも、みんなとでも楽しめる鬼ごっこ<br><br>すきま時間にサクッと、友達とワイワイ、どちらの遊び方もできる鬼ごっこアクションゲームです。
+            </div>
+        </div>
+
+        <!-- App Specifications -->
+        <div class="detail-section">
+            <h2 class="section-heading">情報</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <span class="spec-label">販売元</span>
+                    <span class="spec-value">Ibuki Yoshida</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">サイズ</span>
+                    <span class="spec-value">12.5 MB</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">カテゴリ</span>
+                    <span class="spec-value">ゲーム, ファミリー</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">互換性</span>
+                    <span class="spec-value">iOS 17.6 以降</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">言語</span>
+                    <span class="spec-value">日本語</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">年齢制限</span>
+                    <span class="spec-value">4+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Apps -->
+        <div class="detail-section">
+            <h2 class="section-heading">その他のアプリ</h2>
+            <div class="related-grid">
+                
+        <a href="6787983567.html" class="related-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="価値ズレ！ - 価値観協力オンラインゲーム" class="related-icon">
+            <div class="related-info">
+                <div class="related-title">価値ズレ！</div>
+                <div class="related-genre">ゲーム</div>
+            </div>
+        </a>
+        
+        <a href="6793203167.html" class="related-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="イントロキング - 音楽イントロクイズ" class="related-icon">
+            <div class="related-info">
+                <div class="related-title">イントロキング</div>
+                <div class="related-genre">ゲーム</div>
+            </div>
+        </a>
+        
+        <a href="6788985782.html" class="related-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="お絵描きタワーバトル" class="related-icon">
+            <div class="related-info">
+                <div class="related-title">お絵描きタワーバトル</div>
+                <div class="related-genre">ゲーム</div>
+            </div>
+        </a>
+        
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <strong>Ibuki Yoshida</strong> - iOS Application Developer
+                </div>
+                <div>
+                    <a href="../index.html" style="color: #0071E3; text-decoration: none; margin-right: 1rem;">公式サイト</a>
+                    <a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color: #0071E3; text-decoration: none;">App Store</a>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 0.8rem; font-size: 0.72rem;">
+                © 2026 Ibuki Yoshida. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

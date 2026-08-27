@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <title>ズツノン - 気圧予報で頭痛対策・体調管理記録 - iOSアプリ詳細 | Ibuki Yoshida</title>
+    <meta name="description" content="「ズツノン」は、気圧の変化による頭痛や体調不良（気象病）に悩む方のための、天気予報・体調管理アプリです。">
+    <meta name="keywords" content="ズツノン - 気圧予報で頭痛対策・体調管理記録, iOSアプリ, iPhoneアプリ, Ibuki Yoshida, App Store">
+    <meta name="author" content="Ibuki Yoshida">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6764374754.html">
+    <meta property="og:title" content="ズツノン - 気圧予報で頭痛対策・体調管理記録 - iOSアプリ詳細">
+    <meta property="og:description" content="「ズツノン」は、気圧の変化による頭痛や体調不良（気象病）に悩む方のための、天気予報・体調管理アプリです。">
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/eb/7a/81eb7a81-0151-9d24-b3ef-ef7b771fbd1c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="ズツノン - 気圧予報で頭痛対策・体調管理記録 - iOSアプリ詳細">
+    <meta property="twitter:description" content="「ズツノン」は、気圧の変化による頭痛や体調不良（気象病）に悩む方のための、天気予報・体調管理アプリです。">
+    <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/eb/7a/81eb7a81-0151-9d24-b3ef-ef7b771fbd1c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+
+    <!-- Fonts: Apple System Font + Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Noto Sans JP", "Hiragino Sans", sans-serif;
+            background-color: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: #0071E3;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        /* Navigation */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #0071E3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.15s ease;
+        }
+        .nav-back:hover {
+            opacity: 0.8;
+        }
+        .brand-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1D1D1F;
+            text-decoration: none;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.95rem;
+            border-radius: 9999px;
+            background: #0071E3;
+            color: #FFFFFF;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+        }
+        .btn-store:hover {
+            background: #0077ED;
+        }
+        .btn-store:active {
+            transform: scale(0.97);
+        }
+
+        /* App Header Section */
+        .app-header-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.6rem 1.25rem;
+                gap: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .main-app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 640px) {
+            .main-app-icon {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .app-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #86868B;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .app-name-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 640px) {
+            .app-name-title {
+                font-size: 1.35rem;
+            }
+        }
+        .app-subtitle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071E3;
+            margin-bottom: 1.25rem;
+        }
+        .app-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-meta-pills {
+                justify-content: center;
+            }
+        }
+        .meta-pill {
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F5F5F7;
+            font-size: 0.75rem;
+            color: #515154;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .detail-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .detail-section {
+                padding: 1.4rem 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Screenshots Horizontal Slider */
+        .screenshots-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .screenshot-item {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 640px) {
+            .screenshot-item {
+                flex: 0 0 180px;
+            }
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* Description Body */
+        .desc-content {
+            font-size: 0.92rem;
+            color: #333336;
+            line-height: 1.75;
+            word-break: break-word;
+        }
+
+        /* Info Specifications Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .spec-label {
+            color: #86868B;
+        }
+        .spec-value {
+            color: #1D1D1F;
+            font-weight: 500;
+        }
+
+        /* Related Apps */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #F5F5F7;
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .related-card:hover {
+            background: #EBEBED;
+            transform: translateY(-2px);
+        }
+        .related-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .related-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-genre {
+            font-size: 0.72rem;
+            color: #86868B;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-size: 0.78rem;
+            color: #86868B;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="apple-nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="../index.html" class="nav-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    <span>すべてのアプリ一覧へ</span>
+                </a>
+                
+                <a href="https://apps.apple.com/jp/app/%E3%82%BA%E3%83%84%E3%83%8E%E3%83%B3-%E6%B0%97%E5%9C%A7%E4%BA%88%E5%A0%B1%E3%81%A7%E9%A0%AD%E7%97%9B%E5%AF%BE%E7%AD%96-%E4%BD%93%E8%AA%BF%E7%AE%A1%E7%90%86%E8%A8%98%E9%8C%B2/id6764374754?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">
+                    <span>App Storeで入手</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="flex: 1;">
+        
+        <!-- App Header Card -->
+        <div class="app-header-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/eb/7a/81eb7a81-0151-9d24-b3ef-ef7b771fbd1c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="ズツノン - 気圧予報で頭痛対策・体調管理記録 アイコン" class="main-app-icon">
+            
+            <div class="app-header-info">
+                <div class="app-category-badge">ライフスタイル・健康</div>
+                <h1 class="app-name-title">ズツノン - 気圧予報で頭痛対策・体調管理記録</h1>
+                <p class="app-subtitle-text">Weather アプリ</p>
+                
+                <div class="app-meta-pills">
+                    <span class="meta-pill">価格: 無料</span>
+                    <span class="meta-pill">対象年齢: 4+</span>
+                    <span class="meta-pill">バージョン: 1.0.2</span>
+                    <span class="meta-pill">iOS 18.6 以降</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots -->
+        
+        <div class="detail-section">
+            <h2 class="section-heading">プレビュー</h2>
+            <div class="screenshots-slider">
+                <div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/69/76/31/697631db-cd37-8fc7-90ba-ab88a3d59bc6/_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00284_U0029.png/320x480bb.jpg" alt="ズツノン - 気圧予報で頭痛対策・体調管理記録 スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ee/ee/d0/eeeed0ee-520e-3872-8504-8314e5b85586/_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00286_U0029.png/320x480bb.jpg" alt="ズツノン - 気圧予報で頭痛対策・体調管理記録 スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/53/88/d7/5388d7fa-48eb-61bc-131f-43d819894fd4/_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00287_U0029.png/320x480bb.jpg" alt="ズツノン - 気圧予報で頭痛対策・体調管理記録 スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1d/ab/5d/1dab5da2-15f8-1cfb-911a-2dbf47454119/_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00288_U0029.png/320x480bb.jpg" alt="ズツノン - 気圧予報で頭痛対策・体調管理記録 スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4c/98/a3/4c98a3ac-5429-d124-9eed-89ae8291b4b8/_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00289_U0029.png/320x480bb.jpg" alt="ズツノン - 気圧予報で頭痛対策・体調管理記録 スクリーンショット" loading="lazy" class="screenshot-img"></div>
+            </div>
+        </div>
+        
+
+        <!-- Description -->
+        <div class="detail-section">
+            <h2 class="section-heading">説明</h2>
+            <div class="desc-content">
+                「ズツノン」は、気圧の変化による頭痛や体調不良（気象病）に悩む方のための、天気予報・体調管理アプリです。<br>気圧の変化を事前に把握し、いつ「ズキズキ」が来そうか予測することで、お薬を飲むタイミングや予定の調整をサポートします。<br><br>【ズツノンの主な機能】<br>1. 気圧予報と天気予報<br>・現在地や登録した場所の気圧変化を表示。<br>・低気圧のリスクを「注意」「警戒」などのレベルでひと目で把握できます。<br>・1週間先までの予報を確認可能。<br><br>2. かんたん体調記録<br>・タップするだけで、その時の調子や気分、症状を素早く記録。<br>・お薬の服用記録や、自由なメモも残せます。<br><br>3. レポート・分析機能<br>・記録したデータを月間・年間で統計表示。<br>・不調になりやすい時間帯や、気分の傾向を客観的に振り返ることができます。<br><br>4. ウィジェット・通知<br>・ホーム画面でいつでも気圧リスクをチェック。<br>・気圧が急降下する際のアラート通知で、不調に備えられます。<br><br>5. iCloud同期<br>・複数のデバイス間でデータを自動同期。機種変更時も安心です。<br><br>【こんな方におすすめ】<br>・気圧の変化で頭痛やだるさを感じる方（天気痛・気象病）<br>・偏頭痛（片頭痛）の記録をつけたい方<br>・お薬を飲むタイミングを適切に判断したい方<br>・自分の体調リズムを可視化して改善したい方<br><br>ズツノンと一緒に、気圧に振り回されない健やかな毎日を始めましょう。<br><br>サブスクリプションに関する規約は、以下のリンクをご参照ください。<br>プライバシーポリシー：https://docs.google.com/document/d/1lYmIudYvmSjuPJeSUrqDmqbK4pMrL53On59nB0W1J_o/edit?usp=sharing<br>利用規約 : https://docs.google.com/document/d/1MsUxNCJz3_qKCGNOlJ3yJvrSqQy7pSbaryEq2Fag0ZI/edit?usp=sharing
+            </div>
+        </div>
+
+        <!-- App Specifications -->
+        <div class="detail-section">
+            <h2 class="section-heading">情報</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <span class="spec-label">販売元</span>
+                    <span class="spec-value">Ibuki Yoshida</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">サイズ</span>
+                    <span class="spec-value">11.5 MB</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">カテゴリ</span>
+                    <span class="spec-value">天気</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">互換性</span>
+                    <span class="spec-value">iOS 18.6 以降</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">言語</span>
+                    <span class="spec-value">日本語</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">年齢制限</span>
+                    <span class="spec-value">4+</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Apps -->
+        <div class="detail-section">
+            <h2 class="section-heading">その他のアプリ</h2>
+            <div class="related-grid">
+                
+        <a href="6787983567.html" class="related-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="価値ズレ！ - 価値観協力オンラインゲーム" class="related-icon">
+            <div class="related-info">
+                <div class="related-title">価値ズレ！</div>
+                <div class="related-genre">ゲーム</div>
+            </div>
+        </a>
+        
+        <a href="6793203167.html" class="related-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="イントロキング - 音楽イントロクイズ" class="related-icon">
+            <div class="related-info">
+                <div class="related-title">イントロキング</div>
+                <div class="related-genre">ゲーム</div>
+            </div>
+        </a>
+        
+        <a href="6788985782.html" class="related-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="お絵描きタワーバトル" class="related-icon">
+            <div class="related-info">
+                <div class="related-title">お絵描きタワーバトル</div>
+                <div class="related-genre">ゲーム</div>
+            </div>
+        </a>
+        
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <strong>Ibuki Yoshida</strong> - iOS Application Developer
+                </div>
+                <div>
+                    <a href="../index.html" style="color: #0071E3; text-decoration: none; margin-right: 1rem;">公式サイト</a>
+                    <a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color: #0071E3; text-decoration: none;">App Store</a>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 0.8rem; font-size: 0.72rem;">
+                © 2026 Ibuki Yoshida. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
