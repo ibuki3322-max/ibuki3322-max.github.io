@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>RHYVE - 公式アプリ詳細 | Ibuki Yoshida</title>
+    <meta name="description" content="好きな曲を、そのまま音ゲーに。">
+    <meta name="keywords" content="RHYVE, iOSアプリ, iPhone, Ibuki Yoshida, App Store">
+    <meta name="author" content="Ibuki Yoshida">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6810709252.html">
+    <meta property="og:title" content="RHYVE - 公式アプリ詳細">
+    <meta property="og:description" content="好きな曲を、そのまま音ゲーに。">
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/e7/9b/c0e79b52-10b4-9d74-c61c-793b41ccd8f8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="RHYVE - 公式アプリ詳細">
+    <meta property="twitter:description" content="好きな曲を、そのまま音ゲーに。">
+    <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/e7/9b/c0e79b52-10b4-9d74-c61c-793b41ccd8f8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Noto Sans JP", "Hiragino Sans", sans-serif;
+            background-color: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: #0071E3;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        /* Navigation */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #0071E3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.15s ease;
+        }
+        .nav-back:hover {
+            opacity: 0.8;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #0071E3;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+        }
+        .btn-store:hover {
+            background: #0077ED;
+        }
+        .btn-store:active {
+            transform: scale(0.97);
+        }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #01875F;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(1, 135, 95, 0.2);
+        }
+        .btn-play:hover {
+            background: #019e70;
+        }
+        .btn-play:active {
+            transform: scale(0.97);
+        }
+
+        .btn-official {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #FFFFFF;
+            color: #1D1D1F;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+        .btn-official:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* App Header Section */
+        .app-header-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.6rem 1.25rem;
+                gap: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .main-app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 640px) {
+            .main-app-icon {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .app-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #86868B;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .app-name-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 640px) {
+            .app-name-title {
+                font-size: 1.35rem;
+            }
+        }
+        .app-subtitle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071E3;
+            margin-bottom: 1.1rem;
+        }
+        .app-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .app-meta-pills {
+                justify-content: center;
+            }
+        }
+        .meta-pill {
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F5F5F7;
+            font-size: 0.75rem;
+            color: #515154;
+            font-weight: 500;
+        }
+
+        .action-buttons-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        @media (max-width: 640px) {
+            .action-buttons-group {
+                justify-content: center;
+            }
+        }
+
+        /* Content Sections */
+        .detail-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .detail-section {
+                padding: 1.4rem 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Screenshots Horizontal Slider */
+        .screenshots-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .screenshot-item {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 640px) {
+            .screenshot-item {
+                flex: 0 0 180px;
+            }
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* Description Body */
+        .desc-content {
+            font-size: 0.92rem;
+            color: #333336;
+            line-height: 1.75;
+            word-break: break-word;
+        }
+
+        /* Info Specifications Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .spec-label {
+            color: #86868B;
+        }
+        .spec-value {
+            color: #1D1D1F;
+            font-weight: 500;
+        }
+
+        /* Related Apps */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #F5F5F7;
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .related-card:hover {
+            background: #EBEBED;
+            transform: translateY(-2px);
+        }
+        .related-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .related-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-genre {
+            font-size: 0.72rem;
+            color: #86868B;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-size: 0.78rem;
+            color: #86868B;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="apple-nav"><div class="container"><div class="nav-inner">
+        <a href="../index.html" class="nav-back"><span>← すべてのアプリ一覧へ</span></a>
+        <div style="display:flex;align-items:center;gap:.75rem">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:#86868B;text-decoration:none">お問い合わせ</a>
+            <a href="https://apps.apple.com/jp/app/rhyve/id6810709252?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Store</a>
+        </div>
+    </div></div></header>
+    <main class="container" style="flex:1">
+        <div class="app-header-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/e7/9b/c0e79b52-10b4-9d74-c61c-793b41ccd8f8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="RHYVE アイコン" class="main-app-icon">
+            <div class="app-header-info">
+                <div class="app-category-badge">ゲーム</div>
+                <h1 class="app-name-title">RHYVE</h1>
+                <p class="app-subtitle-text">ゲームアプリ</p>
+                <div class="app-meta-pills">
+                    <span class="meta-pill">価格: 無料</span>
+                    <span class="meta-pill">対象年齢: 4+</span>
+                    <span class="meta-pill">バージョン: 1.0</span>
+                    <span class="meta-pill">iOS 17.0 以降</span>
+                </div>
+                <div class="action-buttons-group"><a href="https://apps.apple.com/jp/app/rhyve/id6810709252?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Storeで見る</a></div>
+            </div>
+        </div>
+        <div class="detail-section"><h2 class="section-heading">プレビュー</h2><div class="screenshots-slider"><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/eb/d2/e6/ebd2e6f6-4e97-4030-3bec-34dc0e782365/_U30a2_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_U6a2a_Uff09.png/320x480bb.jpg" alt="RHYVE スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/53/e3/3b/53e33ba8-ec7b-9e19-91df-e7ddd46c2c29/_U30a2_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_U6a2a_Uff09__U00281_U0029.png/320x480bb.jpg" alt="RHYVE スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e7/b6/a6/e7b6a60a-26f1-36aa-8b89-a6ca34ace853/_U30a2_U30d5_U309a_U30ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_U6a2a_Uff09__U00282_U0029.png/320x480bb.jpg" alt="RHYVE スクリーンショット" loading="lazy" class="screenshot-img"></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">説明</h2><div class="desc-content">好きな曲を、そのまま音ゲーに。<br><br>RHYVEは、あなたが持っている音源を読み込んで、その曲だけの譜面を自動で作り出すリズムゲームです。用意されている曲を遊ぶのではなく、いま聴いている曲、思い入れのある曲で遊べます。<br><br><br>― 曲を選ぶところから、もう遊びが始まっている ―<br><br>ファイルアプリから音源を選ぶだけ。あとはRHYVEが曲を聴き取り、テンポと拍を追いかけ、音の立ち上がりを一つずつ拾い上げて、EASYからMASTERまで5段階の譜面を一度に組み上げます。<br><br>解析はすべて端末の中で完結します。通信は一切行いません。曲がどこかへ送られることも、誰かに知られることもありません。機内モードのままでも、いつもどおり遊べます。<br><br><br>― 曲に寄り添う譜面 ―<br><br>ノーツはただ等間隔に並ぶのではなく、実際に鳴っている音の上に置かれます。<br><br>・キックの踏み込みは幅の広いノーツで、面で受け止める<br>・ハイハットやシンセの立ち上がりにはフリック<br>・音が伸びているところにロングノーツ<br>・メロディが高くなればノーツも右へ、低くなれば左へ<br><br>静かな間奏では手が空き、サビでは一気に詰まる。曲の起伏がそのまま譜面の密度になります。<br><br><br>― 5つの操作 ―<br><br>タップ、ロングノーツ、スライド、フリック、同時押し。<br>片手で押さえながらもう片方でタップする配置も出てきます。指が届かない無理な配置は、譜面を作る段階で取り除いています。<br><br><br>― 自分に合わせて調整できる ―<br><br>・難易度はEASY(Lv.7)からMASTER(Lv.25)まで5段階<br>・譜面スタイルは SIMPLE / STANDARD / TECHNICAL の3種類<br>・密度スライダーで70%〜130%まで細かく調整<br>・気に入らなければ何度でも譜面を作り直せます<br><br>ノーツ速度、判定ラインの位置、レーンの幅と明るさ、ノーツの色、ミラー、効果音と振動、そしてタイミングのずれを測って自動補正する機能まで。手に馴染むまで細かく詰められます。<br><br><br>― はじめての方へ ―<br><br>チュートリアルを用意しています。ノーツが一つずつ出てきて、正しく操作できるまで次に進みません。タップの仕方から、PERFECT・GREAT・GOODの判定の違いまで、実際に叩きながら覚えられます。<br><br><br>― 遊び方 ―<br><br>1. 画面右上の「曲を追加」から、端末やiCloud Drive内の音源（MP3 / M4A / WAV）を選びます<br>2. 数秒でテンポ解析と譜面生成が終わります<br>3. 難易度を選んで LIVE START<br>4. 判定ラインに重なった瞬間にノーツを叩きます<br>5. スコア、最大コンボ、フルコンボ、オールパーフェクトが記録されます</div></div>
+        <div class="detail-section"><h2 class="section-heading">情報</h2><div class="specs-grid"><div class="spec-item"><span class="spec-label">販売元</span><span class="spec-value">IBUKI YOSHIDA</span></div><div class="spec-item"><span class="spec-label">サイズ</span><span class="spec-value">9.9 MB</span></div><div class="spec-item"><span class="spec-label">カテゴリ</span><span class="spec-value">ゲーム, ミュージック</span></div><div class="spec-item"><span class="spec-label">互換性</span><span class="spec-value">iOS 17.0 以降</span></div><div class="spec-item"><span class="spec-label">言語</span><span class="spec-value">英語</span></div><div class="spec-item"><span class="spec-label">年齢制限</span><span class="spec-value">4+</span></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">その他のアプリ</h2><div class="related-grid"><a href="6787983567.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="価値ズレ！ - 価値観協力オンラインゲーム" class="related-icon"><div class="related-info"><div class="related-title">価値ズレ！</div><div class="related-genre">ゲーム</div></div></a><a href="6793203167.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="イントロキング - 音楽イントロクイズ" class="related-icon"><div class="related-info"><div class="related-title">イントロキング</div><div class="related-genre">ゲーム</div></div></a><a href="6788985782.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="お絵描きタワーバトル" class="related-icon"><div class="related-info"><div class="related-title">お絵描きタワーバトル</div><div class="related-genre">ゲーム</div></div></a></div></div>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-inner">
+        <div><strong>Ibuki Yoshida</strong> - iOS Application Developer</div>
+        <div><a href="../index.html" style="color:#0071E3;text-decoration:none;margin-right:1rem">公式サイト</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none;margin-right:1rem">お問い合わせ</a><a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none">App Store</a></div>
+    </div><div style="margin-top:1rem;border-top:1px solid rgba(0,0,0,.05);padding-top:.8rem;font-size:.72rem">© 2026 Ibuki Yoshida. All rights reserved.</div></div></footer>
+</body>
+</html>

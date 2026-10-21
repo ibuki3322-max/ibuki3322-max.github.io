@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>WordBlade - 文字で戦うコマバトル - 公式アプリ詳細 | Ibuki Yoshida</title>
+    <meta name="description" content="好きな「1文字」が、そのまま戦うコマになる。WordBladeは、文字の形で性能が決まる3Dコマバトルゲームです。">
+    <meta name="keywords" content="WordBlade - 文字で戦うコマバトル, iOSアプリ, iPhone, Ibuki Yoshida, App Store">
+    <meta name="author" content="Ibuki Yoshida">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6819836440.html">
+    <meta property="og:title" content="WordBlade - 文字で戦うコマバトル - 公式アプリ詳細">
+    <meta property="og:description" content="好きな「1文字」が、そのまま戦うコマになる。WordBladeは、文字の形で性能が決まる3Dコマバトルゲームです。">
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/3f/92/843f92f1-d024-1129-502a-cf7b09366f3d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="WordBlade - 文字で戦うコマバトル - 公式アプリ詳細">
+    <meta property="twitter:description" content="好きな「1文字」が、そのまま戦うコマになる。WordBladeは、文字の形で性能が決まる3Dコマバトルゲームです。">
+    <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/3f/92/843f92f1-d024-1129-502a-cf7b09366f3d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Noto Sans JP", "Hiragino Sans", sans-serif;
+            background-color: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: #0071E3;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        /* Navigation */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #0071E3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.15s ease;
+        }
+        .nav-back:hover {
+            opacity: 0.8;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #0071E3;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+        }
+        .btn-store:hover {
+            background: #0077ED;
+        }
+        .btn-store:active {
+            transform: scale(0.97);
+        }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #01875F;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(1, 135, 95, 0.2);
+        }
+        .btn-play:hover {
+            background: #019e70;
+        }
+        .btn-play:active {
+            transform: scale(0.97);
+        }
+
+        .btn-official {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #FFFFFF;
+            color: #1D1D1F;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+        .btn-official:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* App Header Section */
+        .app-header-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.6rem 1.25rem;
+                gap: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .main-app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 640px) {
+            .main-app-icon {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .app-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #86868B;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .app-name-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 640px) {
+            .app-name-title {
+                font-size: 1.35rem;
+            }
+        }
+        .app-subtitle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071E3;
+            margin-bottom: 1.1rem;
+        }
+        .app-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .app-meta-pills {
+                justify-content: center;
+            }
+        }
+        .meta-pill {
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F5F5F7;
+            font-size: 0.75rem;
+            color: #515154;
+            font-weight: 500;
+        }
+
+        .action-buttons-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        @media (max-width: 640px) {
+            .action-buttons-group {
+                justify-content: center;
+            }
+        }
+
+        /* Content Sections */
+        .detail-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .detail-section {
+                padding: 1.4rem 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Screenshots Horizontal Slider */
+        .screenshots-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .screenshot-item {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 640px) {
+            .screenshot-item {
+                flex: 0 0 180px;
+            }
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* Description Body */
+        .desc-content {
+            font-size: 0.92rem;
+            color: #333336;
+            line-height: 1.75;
+            word-break: break-word;
+        }
+
+        /* Info Specifications Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .spec-label {
+            color: #86868B;
+        }
+        .spec-value {
+            color: #1D1D1F;
+            font-weight: 500;
+        }
+
+        /* Related Apps */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #F5F5F7;
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .related-card:hover {
+            background: #EBEBED;
+            transform: translateY(-2px);
+        }
+        .related-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .related-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-genre {
+            font-size: 0.72rem;
+            color: #86868B;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-size: 0.78rem;
+            color: #86868B;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="apple-nav"><div class="container"><div class="nav-inner">
+        <a href="../index.html" class="nav-back"><span>← すべてのアプリ一覧へ</span></a>
+        <div style="display:flex;align-items:center;gap:.75rem">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:#86868B;text-decoration:none">お問い合わせ</a>
+            <a href="https://apps.apple.com/jp/app/wordblade-%E6%96%87%E5%AD%97%E3%81%A7%E6%88%A6%E3%81%86%E3%82%B3%E3%83%9E%E3%83%90%E3%83%88%E3%83%AB/id6819836440?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Store</a>
+        </div>
+    </div></div></header>
+    <main class="container" style="flex:1">
+        <div class="app-header-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/3f/92/843f92f1-d024-1129-502a-cf7b09366f3d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="WordBlade - 文字で戦うコマバトル アイコン" class="main-app-icon">
+            <div class="app-header-info">
+                <div class="app-category-badge">ゲーム</div>
+                <h1 class="app-name-title">WordBlade - 文字で戦うコマバトル</h1>
+                <p class="app-subtitle-text">文字で戦うコマバトル</p>
+                <div class="app-meta-pills">
+                    <span class="meta-pill">価格: 無料</span>
+                    <span class="meta-pill">対象年齢: 4+</span>
+                    <span class="meta-pill">バージョン: 1.0.3</span>
+                    <span class="meta-pill">iOS 18.6 以降</span>
+                </div>
+                <div class="action-buttons-group"><a href="https://apps.apple.com/jp/app/wordblade-%E6%96%87%E5%AD%97%E3%81%A7%E6%88%A6%E3%81%86%E3%82%B3%E3%83%9E%E3%83%90%E3%83%88%E3%83%AB/id6819836440?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Storeで見る</a></div>
+            </div>
+        </div>
+        <div class="detail-section"><h2 class="section-heading">プレビュー</h2><div class="screenshots-slider"><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f7/4d/22/f74d22de-1dcf-7526-cee8-d28596686e02/_U540d_U79f0_U672a_U8a2d_U5b9a_U306e_U30c6_U3099_U30b5_U3099_U30a4_U30f3.png/320x480bb.jpg" alt="WordBlade - 文字で戦うコマバトル スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9b/1b/2a/9b1b2ab1-d603-8526-d979-68c3ddaea9ca/_U540d_U79f0_U672a_U8a2d_U5b9a_U306e_U30c6_U3099_U30b5_U3099_U30a4_U30f3__U00281_U0029.png/320x480bb.jpg" alt="WordBlade - 文字で戦うコマバトル スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/51/af/ba/51afba4e-9d88-0328-7857-d4d22ee52fe4/_U540d_U79f0_U672a_U8a2d_U5b9a_U306e_U30c6_U3099_U30b5_U3099_U30a4_U30f3__U00282_U0029.png/320x480bb.jpg" alt="WordBlade - 文字で戦うコマバトル スクリーンショット" loading="lazy" class="screenshot-img"></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">説明</h2><div class="desc-content">好きな「1文字」が、そのまま戦うコマになる。WordBladeは、文字の形で性能が決まる3Dコマバトルゲームです。<br>WordBladeは、文字の形で性能が決まる3Dコマバトルゲームです。<br><br>ひらがな、カタカナ、漢字、英字。入力したどんな文字でもコマになります。文字の輪郭を読み取って、丸さ・鋭さ・四角さ・画数の多さから、攻撃・防御・持久・重さが自動で決まります。いつもの一文字が、思いがけない最強コマになるかもしれません。<br><br>◆ 文字の形がそのまま戦略に<br>・丸い文字は「スタミナ」型。長く回り続け、逆回転の相手から回転を奪う<br>・角ばった文字は「アタック」型。鋭い刃で相手を弾き飛ばす<br>・四角く重い文字は「ディフェンス」型。どっしり受け止めて押し返す<br>・バランス型はどんな相手とも渡り合える<br>アタックはスタミナに強く、スタミナはディフェンスに強く、ディフェンスはアタックに強い。相手の文字を見て、相性で選ぶのが勝利への近道です。<br><br>◆ スワイプ一つで迫力のバトル<br>3D のスタジアムで、立体の文字コマが火花を散らしてぶつかり合います。強烈な一撃で相手の文字が画ごとに砕け散る「バースト」、場外へ吹き飛ばす「オーバー」、回転が止まって倒れた相手はバラバラに分解。決着の瞬間まで目が離せません。<br><br>◆ 遊び方<br>1. コマにする文字を選ぶ（おすすめから選ぶか、好きな1文字を入力）<br>2. 「3、2、1、SHOOT!!」に合わせて画面をスワイプして発射<br>　・スワイプの向き：飛び出す方向<br>　・スワイプの勢い：回転の強さ<br>　・右に払えば右回転、左に払えば左回転<br>　・タイミングがぴったりなら「PERFECT」で回転アップ<br>3. バトル中はスワイプで「ブースト」。狙った方向へ突進できる（4秒ごとに1回分回復）<br>4. 決着で得点。先に3ポイント取ったほうの勝ち<br>　・スピンフィニッシュ（相手の回転を止める）：1ポイント<br>　・オーバーフィニッシュ（場外へ出す）：2ポイント<br>　・バーストフィニッシュ（相手を砕く）：2ポイント<br>　・時間切れは残りの回転が多いほうに1ポイント<br><br><br>◆ オンライン対戦<br>・ランダムマッチ：世界中のプレイヤーとすぐに対戦<br>・フレンドマッチ：部屋を作ってコードを送るだけで、友だちと2人で対戦<br>・勝てばレートが上がり、ランキングに名前が載る<br>両者の準備がそろってから同時にスタートし、通信状況も画面に表示されるので、安心して対戦できます。<br><br>あなたの名前の一文字、好きな漢字、ひらがな一文字。最強の文字を探しに行こう！</div></div>
+        <div class="detail-section"><h2 class="section-heading">情報</h2><div class="specs-grid"><div class="spec-item"><span class="spec-label">販売元</span><span class="spec-value">IBUKI YOSHIDA</span></div><div class="spec-item"><span class="spec-label">サイズ</span><span class="spec-value">32.1 MB</span></div><div class="spec-item"><span class="spec-label">カテゴリ</span><span class="spec-value">ゲーム, アクション</span></div><div class="spec-item"><span class="spec-label">互換性</span><span class="spec-value">iOS 18.6 以降</span></div><div class="spec-item"><span class="spec-label">言語</span><span class="spec-value">日本語</span></div><div class="spec-item"><span class="spec-label">年齢制限</span><span class="spec-value">4+</span></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">その他のアプリ</h2><div class="related-grid"><a href="6787983567.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="価値ズレ！ - 価値観協力オンラインゲーム" class="related-icon"><div class="related-info"><div class="related-title">価値ズレ！</div><div class="related-genre">ゲーム</div></div></a><a href="6793203167.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="イントロキング - 音楽イントロクイズ" class="related-icon"><div class="related-info"><div class="related-title">イントロキング</div><div class="related-genre">ゲーム</div></div></a><a href="6788985782.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="お絵描きタワーバトル" class="related-icon"><div class="related-info"><div class="related-title">お絵描きタワーバトル</div><div class="related-genre">ゲーム</div></div></a></div></div>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-inner">
+        <div><strong>Ibuki Yoshida</strong> - iOS Application Developer</div>
+        <div><a href="../index.html" style="color:#0071E3;text-decoration:none;margin-right:1rem">公式サイト</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none;margin-right:1rem">お問い合わせ</a><a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none">App Store</a></div>
+    </div><div style="margin-top:1rem;border-top:1px solid rgba(0,0,0,.05);padding-top:.8rem;font-size:.72rem">© 2026 Ibuki Yoshida. All rights reserved.</div></div></footer>
+</body>
+</html>

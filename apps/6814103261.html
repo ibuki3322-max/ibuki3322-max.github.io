@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tether Up! - ロープで登る協力ゲーム - 公式アプリ詳細 | Ibuki Yoshida</title>
+    <meta name="description" content="一本のロープで、ふたりはつながっている。">
+    <meta name="keywords" content="Tether Up! - ロープで登る協力ゲーム, iOSアプリ, iPhone, Ibuki Yoshida, App Store">
+    <meta name="author" content="Ibuki Yoshida">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6814103261.html">
+    <meta property="og:title" content="Tether Up! - ロープで登る協力ゲーム - 公式アプリ詳細">
+    <meta property="og:description" content="一本のロープで、ふたりはつながっている。">
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/d2/1a/61d21a60-9293-a802-a078-7a2d811f335b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Tether Up! - ロープで登る協力ゲーム - 公式アプリ詳細">
+    <meta property="twitter:description" content="一本のロープで、ふたりはつながっている。">
+    <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/d2/1a/61d21a60-9293-a802-a078-7a2d811f335b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Noto Sans JP", "Hiragino Sans", sans-serif;
+            background-color: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: #0071E3;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        /* Navigation */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #0071E3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.15s ease;
+        }
+        .nav-back:hover {
+            opacity: 0.8;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #0071E3;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+        }
+        .btn-store:hover {
+            background: #0077ED;
+        }
+        .btn-store:active {
+            transform: scale(0.97);
+        }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #01875F;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(1, 135, 95, 0.2);
+        }
+        .btn-play:hover {
+            background: #019e70;
+        }
+        .btn-play:active {
+            transform: scale(0.97);
+        }
+
+        .btn-official {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #FFFFFF;
+            color: #1D1D1F;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+        .btn-official:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .android-test-copy {
+            color: #515154;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin: 0 0 1.2rem;
+        }
+
+        /* App Header Section */
+        .app-header-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.6rem 1.25rem;
+                gap: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .main-app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 640px) {
+            .main-app-icon {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .app-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #86868B;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .app-name-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 640px) {
+            .app-name-title {
+                font-size: 1.35rem;
+            }
+        }
+        .app-subtitle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071E3;
+            margin-bottom: 1.1rem;
+        }
+        .app-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .app-meta-pills {
+                justify-content: center;
+            }
+        }
+        .meta-pill {
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F5F5F7;
+            font-size: 0.75rem;
+            color: #515154;
+            font-weight: 500;
+        }
+
+        .action-buttons-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        @media (max-width: 640px) {
+            .action-buttons-group {
+                justify-content: center;
+            }
+        }
+
+        /* Content Sections */
+        .detail-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .detail-section {
+                padding: 1.4rem 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Screenshots Horizontal Slider */
+        .screenshots-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .screenshot-item {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 640px) {
+            .screenshot-item {
+                flex: 0 0 180px;
+            }
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* Description Body */
+        .desc-content {
+            font-size: 0.92rem;
+            color: #333336;
+            line-height: 1.75;
+            word-break: break-word;
+        }
+
+        /* Info Specifications Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .spec-label {
+            color: #86868B;
+        }
+        .spec-value {
+            color: #1D1D1F;
+            font-weight: 500;
+        }
+
+        /* Related Apps */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #F5F5F7;
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .related-card:hover {
+            background: #EBEBED;
+            transform: translateY(-2px);
+        }
+        .related-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .related-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-genre {
+            font-size: 0.72rem;
+            color: #86868B;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-size: 0.78rem;
+            color: #86868B;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="apple-nav"><div class="container"><div class="nav-inner">
+        <a href="../index.html" class="nav-back"><span>← すべてのアプリ一覧へ</span></a>
+        <div style="display:flex;align-items:center;gap:.75rem">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:#86868B;text-decoration:none">お問い合わせ</a>
+            <a href="https://apps.apple.com/jp/app/tether-up-%E3%83%AD%E3%83%BC%E3%83%97%E3%81%A7%E7%99%BB%E3%82%8B%E5%8D%94%E5%8A%9B%E3%82%B2%E3%83%BC%E3%83%A0/id6814103261?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Store</a>
+        </div>
+    </div></div></header>
+    <main class="container" style="flex:1">
+        <div class="app-header-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/d2/1a/61d21a60-9293-a802-a078-7a2d811f335b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="Tether Up! - ロープで登る協力ゲーム アイコン" class="main-app-icon">
+            <div class="app-header-info">
+                <div class="app-category-badge">ゲーム</div>
+                <h1 class="app-name-title">Tether Up! - ロープで登る協力ゲーム</h1>
+                <p class="app-subtitle-text">ロープで登る協力ゲーム</p>
+                <div class="app-meta-pills">
+                    <span class="meta-pill">価格: 無料</span>
+                    <span class="meta-pill">対象年齢: 4+</span>
+                    <span class="meta-pill">バージョン: 1.0.4</span>
+                    <span class="meta-pill">iOS 17.6 以降</span>
+                </div>
+                <div class="action-buttons-group"><a href="https://apps.apple.com/jp/app/tether-up-%E3%83%AD%E3%83%BC%E3%83%97%E3%81%A7%E7%99%BB%E3%82%8B%E5%8D%94%E5%8A%9B%E3%82%B2%E3%83%BC%E3%83%A0/id6814103261?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Storeで見る</a><a href="https://tether-up.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn-official">公式サイト ↗</a></div>
+            </div>
+        </div>
+        <div class="detail-section">
+            <h2 class="section-heading">Android版のテスター募集</h2>
+            <p class="android-test-copy">Android版は一般公開前で、クローズドテストを準備中です。現在はテスター用Googleグループに参加できます。</p>
+            <div class="action-buttons-group">
+                <a href="https://groups.google.com/g/tether-up" target="_blank" rel="noopener noreferrer" class="btn-play">テスター用グループに参加 ↗</a>
+                <a href="https://tether-up.pages.dev/android/" target="_blank" rel="noopener noreferrer" class="btn-official">参加方法・最新状況 ↗</a>
+            </div>
+        </div>
+        <div class="detail-section"><h2 class="section-heading">プレビュー</h2><div class="screenshots-slider"><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/62/93/d3/6293d319-b777-c5ce-e58a-93e181e4439e/_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00286_U0029.png/320x480bb.jpg" alt="Tether Up! - ロープで登る協力ゲーム スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e3/04/4f/e3044f92-24bc-c690-5303-ffd2df7ee59c/_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00285_U0029.png/320x480bb.jpg" alt="Tether Up! - ロープで登る協力ゲーム スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b3/41/32/b341328a-4f76-4d3e-4970-1550adcceb78/_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00283_U0029.png/320x480bb.jpg" alt="Tether Up! - ロープで登る協力ゲーム スクリーンショット" loading="lazy" class="screenshot-img"></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">説明</h2><div class="desc-content">一本のロープで、ふたりはつながっている。<br><br>「Tether Up!」は、相棒とロープで結ばれたまま、どこまでも高く登り続ける協力クライムアクションです。ステージの切り替えも、チェックポイントも、決められたゴールもありません。あるのは、足場と、風と、綱の向こう側にいるもうひとりだけ。<br><br>◆ ロープが、味方にも敵にもなる<br>ロープはたるんでいる間は自由。でも、ピンと張った瞬間、相棒の重さも勢いもそのまま自分に伝わります。先に跳びすぎれば引き戻され、息が合えば届かなかった足場にも手が届く。引っぱるか、待つか、跳ぶか。そのたった一瞬の判断が、ふたりの高度を決めます。<br><br>◆ 落ちても、終わらない<br>何十メートル落ちても大丈夫。足場につかまり直して、また登ればいいだけです。途切れるのは、ふたりそろって谷底まで落ちたときだけ。だから何度でも笑って、何度でもやり直せます。<br><br>◆ 空の色が、進んだ距離を教えてくれる<br>渓谷、風の庭、雲上の遺跡、黄金の空へ。背景は登るほどに移り変わり、ロードも待ち時間もなく景色だけが変わっていきます。100mごとの到達表示が、静かに背中を押してくれます。<br><br>◆ 10種類以上の仕掛けが待っている<br>動く床、昇降リフト、ジャンプ台、崩れる足場、氷の床、沈む床、消える床、横風。さらにふたりでないと越えられない協力ギミックも。シーソーは重心で傾き、スイッチ橋はふたつのスイッチでつながり、回転床は40秒かけて一回転し、風の谷は10秒周期で吹き荒れます。同じ登り方は、二度とできません。<br><br>◆ 相手は、世界のどこかの誰か<br>オンラインならランダムマッチで見知らぬ相棒と、フレンド招待やパーティーコードなら友だちと。言葉は交わせなくても、ロープの引っぱり方だけで気持ちは伝わります。最高到達点はランキングに記録され、世界中の挑戦者と並びます。<br><br>◆ まずは、ひとりで<br>「一人テスト」なら、相棒なしで操作とギミックをじっくり練習できます。記録はオンラインとは別に保存されるので、気兼ねなく何度でも。<br><br>■ 遊び方<br><br>1. 画面の左側を好きな位置からドラッグして、左右に移動します。<br>2. 画面の右側をタップしてジャンプ。スティックは触れている間だけ現れるので、画面をふさぎません。<br>3. 右側を長押しすると、ロープを引き寄せられます（オンライン協力プレイ）。<br>4. 足場に着地したら踏ん張って、相棒を引き上げましょう。空中では左右に振って足場へ戻れます。<br>5. 高度は、ふたりのうち低いほうの足元で計測します。置いていかず、置いていかれず。<br>6. 出発地点より45m下の谷底へふたりとも落ちると挑戦終了。結果を確認して、0mからもう一度。<br><br>さあ、綱を結んで。行けるところまで、いっしょに。<br><br>※サブスクリプションに関する規約は、以下のリンクをご参照ください。<br>プライバシーポリシー：https://docs.google.com/document/d/1V4TKKgMDuiKV10nt33OYDSLpaeuARBPib4Rui06CnqM/preview<br>利用規約 : https://docs.google.com/document/d/1bU2F59puS6ByM1uHiQdauddibmk4mdIzz7mKgFWEeBA/preview</div></div>
+        <div class="detail-section"><h2 class="section-heading">情報</h2><div class="specs-grid"><div class="spec-item"><span class="spec-label">販売元</span><span class="spec-value">IBUKI YOSHIDA</span></div><div class="spec-item"><span class="spec-label">サイズ</span><span class="spec-value">33.2 MB</span></div><div class="spec-item"><span class="spec-label">カテゴリ</span><span class="spec-value">ゲーム, ファミリー</span></div><div class="spec-item"><span class="spec-label">互換性</span><span class="spec-value">iOS 17.6 以降</span></div><div class="spec-item"><span class="spec-label">言語</span><span class="spec-value">英語</span></div><div class="spec-item"><span class="spec-label">年齢制限</span><span class="spec-value">4+</span></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">その他のアプリ</h2><div class="related-grid"><a href="6787983567.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="価値ズレ！ - 価値観協力オンラインゲーム" class="related-icon"><div class="related-info"><div class="related-title">価値ズレ！</div><div class="related-genre">ゲーム</div></div></a><a href="6793203167.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="イントロキング - 音楽イントロクイズ" class="related-icon"><div class="related-info"><div class="related-title">イントロキング</div><div class="related-genre">ゲーム</div></div></a><a href="6788985782.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="お絵描きタワーバトル" class="related-icon"><div class="related-info"><div class="related-title">お絵描きタワーバトル</div><div class="related-genre">ゲーム</div></div></a></div></div>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-inner">
+        <div><strong>Ibuki Yoshida</strong> - iOS Application Developer</div>
+        <div><a href="../index.html" style="color:#0071E3;text-decoration:none;margin-right:1rem">開発者サイト</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none;margin-right:1rem">お問い合わせ</a><a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none">App Store</a></div>
+    </div><div style="margin-top:1rem;border-top:1px solid rgba(0,0,0,.05);padding-top:.8rem;font-size:.72rem">© 2026 Ibuki Yoshida. All rights reserved.</div></div></footer>
+</body>
+</html>

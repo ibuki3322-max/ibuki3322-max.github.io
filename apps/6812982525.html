@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>VoiceFight - 声でバトル - 公式アプリ詳細 | Ibuki Yoshida</title>
+    <meta name="description" content="声で戦う！「ボイスファイト」は、マイクに向かって叫んで、吠えて、まねして戦う“声”の対戦ゲームです。操作はかんたん、必要なのはあなたの声だけ。ひとりで記録に挑戦するのも、友だちとリアルタイムで勝負するのも、思わず笑って盛り上がります。">
+    <meta name="keywords" content="VoiceFight - 声でバトル, iOSアプリ, iPhone, Ibuki Yoshida, App Store">
+    <meta name="author" content="Ibuki Yoshida">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6812982525.html">
+    <meta property="og:title" content="VoiceFight - 声でバトル - 公式アプリ詳細">
+    <meta property="og:description" content="声で戦う！「ボイスファイト」は、マイクに向かって叫んで、吠えて、まねして戦う“声”の対戦ゲームです。操作はかんたん、必要なのはあなたの声だけ。ひとりで記録に挑戦するのも、友だちとリアルタイムで勝負するのも、思わず笑って盛り上がります。">
+    <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/9b/a1/b19ba196-2742-34a7-8d8d-5382166d601b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="VoiceFight - 声でバトル - 公式アプリ詳細">
+    <meta property="twitter:description" content="声で戦う！「ボイスファイト」は、マイクに向かって叫んで、吠えて、まねして戦う“声”の対戦ゲームです。操作はかんたん、必要なのはあなたの声だけ。ひとりで記録に挑戦するのも、友だちとリアルタイムで勝負するのも、思わず笑って盛り上がります。">
+    <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/9b/a1/b19ba196-2742-34a7-8d8d-5382166d601b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Noto Sans JP", "Hiragino Sans", sans-serif;
+            background-color: #F5F5F7;
+            color: #1D1D1F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: #0071E3;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        /* Navigation */
+        .apple-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 48px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #0071E3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.15s ease;
+        }
+        .nav-back:hover {
+            opacity: 0.8;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #0071E3;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(0, 113, 227, 0.2);
+        }
+        .btn-store:hover {
+            background: #0077ED;
+        }
+        .btn-store:active {
+            transform: scale(0.97);
+        }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #01875F;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(1, 135, 95, 0.2);
+        }
+        .btn-play:hover {
+            background: #019e70;
+        }
+        .btn-play:active {
+            transform: scale(0.97);
+        }
+
+        .btn-official {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #FFFFFF;
+            color: #1D1D1F;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+        .btn-official:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* App Header Section */
+        .app-header-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .app-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.6rem 1.25rem;
+                gap: 1.25rem;
+                margin-top: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .main-app-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        @media (max-width: 640px) {
+            .main-app-icon {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .app-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .app-category-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #86868B;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .app-name-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+        @media (max-width: 640px) {
+            .app-name-title {
+                font-size: 1.35rem;
+            }
+        }
+        .app-subtitle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071E3;
+            margin-bottom: 1.1rem;
+        }
+        .app-meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .app-meta-pills {
+                justify-content: center;
+            }
+        }
+        .meta-pill {
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F5F5F7;
+            font-size: 0.75rem;
+            color: #515154;
+            font-weight: 500;
+        }
+
+        .action-buttons-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        @media (max-width: 640px) {
+            .action-buttons-group {
+                justify-content: center;
+            }
+        }
+
+        /* Content Sections */
+        .detail-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .detail-section {
+                padding: 1.4rem 1.15rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        .section-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* Screenshots Horizontal Slider */
+        .screenshots-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.8rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .screenshot-item {
+            flex: 0 0 220px;
+        }
+        @media (max-width: 640px) {
+            .screenshot-item {
+                flex: 0 0 180px;
+            }
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: block;
+        }
+
+        /* Description Body */
+        .desc-content {
+            font-size: 0.92rem;
+            color: #333336;
+            line-height: 1.75;
+            word-break: break-word;
+        }
+
+        /* Info Specifications Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 640px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .spec-label {
+            color: #86868B;
+        }
+        .spec-value {
+            color: #1D1D1F;
+            font-weight: 500;
+        }
+
+        /* Related Apps */
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #F5F5F7;
+            border-radius: 16px;
+            padding: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.15s ease;
+        }
+        .related-card:hover {
+            background: #EBEBED;
+            transform: translateY(-2px);
+        }
+        .related-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 22.5%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .related-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .related-genre {
+            font-size: 0.72rem;
+            color: #86868B;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            font-size: 0.78rem;
+            color: #86868B;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="apple-nav"><div class="container"><div class="nav-inner">
+        <a href="../index.html" class="nav-back"><span>← すべてのアプリ一覧へ</span></a>
+        <div style="display:flex;align-items:center;gap:.75rem">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="font-size:.8rem;color:#86868B;text-decoration:none">お問い合わせ</a>
+            <a href="https://apps.apple.com/jp/app/voicefight-%E5%A3%B0%E3%81%A7%E3%83%90%E3%83%88%E3%83%AB/id6812982525?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Store</a>
+        </div>
+    </div></div></header>
+    <main class="container" style="flex:1">
+        <div class="app-header-card">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/9b/a1/b19ba196-2742-34a7-8d8d-5382166d601b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="VoiceFight - 声でバトル アイコン" class="main-app-icon">
+            <div class="app-header-info">
+                <div class="app-category-badge">ゲーム</div>
+                <h1 class="app-name-title">VoiceFight - 声でバトル</h1>
+                <p class="app-subtitle-text">声でバトル</p>
+                <div class="app-meta-pills">
+                    <span class="meta-pill">価格: 無料</span>
+                    <span class="meta-pill">対象年齢: 4+</span>
+                    <span class="meta-pill">バージョン: 1.0</span>
+                    <span class="meta-pill">iOS 17.6 以降</span>
+                </div>
+                <div class="action-buttons-group"><a href="https://apps.apple.com/jp/app/voicefight-%E5%A3%B0%E3%81%A7%E3%83%90%E3%83%88%E3%83%AB/id6812982525?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">App Storeで見る</a></div>
+            </div>
+        </div>
+        <div class="detail-section"><h2 class="section-heading">プレビュー</h2><div class="screenshots-slider"><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d3/3d/e5/d33de5c4-fb75-bf96-6df3-36045f7b636a/ea_U30b9_U30af_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc.png/320x480bb.jpg" alt="VoiceFight - 声でバトル スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1f/5c/f1/1f5cf1e5-c993-8b16-a9cc-915aa459c799/_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00281_U0029.png/320x480bb.jpg" alt="VoiceFight - 声でバトル スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2e/95/7b/2e957bfa-0644-2406-ead2-f40381796ccb/_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00283_U0029.png/320x480bb.jpg" alt="VoiceFight - 声でバトル スクリーンショット" loading="lazy" class="screenshot-img"></div><div class="screenshot-item"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2e/4f/8a/2e4f8ab7-1f18-beb0-6552-647d5ddc848d/_U30b7_U30e7_Uff08_U30b9_U30de_U30db_Uff09_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc_U306e_U30b3_U30d2_U309a_U30fc__U00282_U0029.png/320x480bb.jpg" alt="VoiceFight - 声でバトル スクリーンショット" loading="lazy" class="screenshot-img"></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">説明</h2><div class="desc-content">声で戦う！「ボイスファイト」は、マイクに向かって叫んで、吠えて、まねして戦う“声”の対戦ゲームです。操作はかんたん、必要なのはあなたの声だけ。ひとりで記録に挑戦するのも、友だちとリアルタイムで勝負するのも、思わず笑って盛り上がります。<br>「ボイスファイト」は、マイクに向かって叫んで、吠えて、まねして戦う“声”の対戦ゲームです。操作はかんたん、必要なのはあなたの声だけ。ひとりで記録に挑戦するのも、友だちとリアルタイムで勝負するのも、思わず笑って盛り上がります。<br><br>【ボイスファイトの魅力】<br>・声だけで遊べる！ 画面をタップし続ける必要はなく、思いきり声を出すほど強くなる<br>・3種類のボイスバトル。パワー勝負、連打勝負、テクニック勝負で飽きずに遊べる<br>・Game Centerでリアルタイム対戦。知らない誰かとも、友だちとも1対1で真剣勝負<br>・勝てばレートアップ！ ランキングで全国のプレイヤーと声の強さを競える<br>・アカウント登録不要、無料ですぐに遊べる<br>・かわいい犬のキャラクターたちが、あなたの声でアタック！<br>・ストレス発散や、パーティー・家族の集まりの盛り上げにもぴったり<br><br>【3つのバトル】<br>＜わんわんファイト（30秒）＞<br>マイクに向かって「わん！」と連呼！ 吠えた回数 × 声の大きさが攻撃力になり、相手のHPを削ります。リズムよく、はっきり、大きく吠えるのが勝利のカギ。<br><br>＜大声バトル（7秒）＞<br>息を吸って、お腹から全力で叫べ！ 一瞬の最大音量で勝負する、シンプルで熱いパワー対決です。<br><br>＜声マネバトル（5秒）＞<br>お手本の声の強弱とタイミングをまねして、波形のシンクロ率を競います。オンライン対戦では、お互いが交互にお手本役になり、相手の声をまねし合う2ラウンド制。大声よりもセンスが試されます。<br><br>【遊び方】<br>1. ホーム画面で遊びたいバトルを選ぶ<br>2. 「ひとりで練習」か「オンライン対戦」を選ぶ<br>3. 初回はマイク（わんわんファイトでは音声認識も）の使用を許可<br>4. スタート直後は周りの音を測るので少し静かに待ち、合図が出たら声を出そう！<br>5. 結果とスコアをチェック。オンライン対戦なら勝敗でレートが変動します<br><br>＜オンライン対戦＞<br>・ランダムマッチ：同じバトルを選んだプレイヤーとすぐに対戦<br>・フレンドマッチ：8桁の合言葉コードを発行してLINEやメッセージで共有、またはGame Centerのフレンドを直接招待<br><br>＜うまく遊ぶコツ＞<br>・マイクをふさがず、端末から適度な距離で声を出しましょう<br>・静かな場所ほど正確に判定されます</div></div>
+        <div class="detail-section"><h2 class="section-heading">情報</h2><div class="specs-grid"><div class="spec-item"><span class="spec-label">販売元</span><span class="spec-value">IBUKI YOSHIDA</span></div><div class="spec-item"><span class="spec-label">サイズ</span><span class="spec-value">15.2 MB</span></div><div class="spec-item"><span class="spec-label">カテゴリ</span><span class="spec-value">ゲーム, ファミリー</span></div><div class="spec-item"><span class="spec-label">互換性</span><span class="spec-value">iOS 17.6 以降</span></div><div class="spec-item"><span class="spec-label">言語</span><span class="spec-value">英語</span></div><div class="spec-item"><span class="spec-label">年齢制限</span><span class="spec-value">4+</span></div></div></div>
+        <div class="detail-section"><h2 class="section-heading">その他のアプリ</h2><div class="related-grid"><a href="6787983567.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="価値ズレ！ - 価値観協力オンラインゲーム" class="related-icon"><div class="related-info"><div class="related-title">価値ズレ！</div><div class="related-genre">ゲーム</div></div></a><a href="6793203167.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="イントロキング - 音楽イントロクイズ" class="related-icon"><div class="related-info"><div class="related-title">イントロキング</div><div class="related-genre">ゲーム</div></div></a><a href="6788985782.html" class="related-card"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="お絵描きタワーバトル" class="related-icon"><div class="related-info"><div class="related-title">お絵描きタワーバトル</div><div class="related-genre">ゲーム</div></div></a></div></div>
+    </main>
+    <footer class="footer"><div class="container"><div class="footer-inner">
+        <div><strong>Ibuki Yoshida</strong> - iOS Application Developer</div>
+        <div><a href="../index.html" style="color:#0071E3;text-decoration:none;margin-right:1rem">公式サイト</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none;margin-right:1rem">お問い合わせ</a><a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color:#0071E3;text-decoration:none">App Store</a></div>
+    </div><div style="margin-top:1rem;border-top:1px solid rgba(0,0,0,.05);padding-top:.8rem;font-size:.72rem">© 2026 Ibuki Yoshida. All rights reserved.</div></div></footer>
+</body>
+</html>

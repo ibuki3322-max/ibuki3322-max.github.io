@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>みんなで遊ぶゲーム | Ibuki Yoshida</title>
+    <meta name="description" content="友達や家族と遊べるiOSゲームを紹介。協力プレイ、1台で遊ぶパーティーゲーム、オンライン対戦から選べます。">
+    <meta name="author" content="Ibuki Yoshida">
+    <link rel="canonical" href="https://ibuki3322-max.github.io/multiplayer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibuki3322-max.github.io/multiplayer.html">
+    <meta property="og:title" content="みんなで遊ぶゲーム | Ibuki Yoshida">
+    <meta property="og:description" content="協力、1台で、オンライン。友達や家族と遊べるiOSゲームを探せます。">
+    <meta property="og:image" content="https://ibuki3322-max.github.io/assets/tether-up-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="みんなで遊ぶゲーム | Ibuki Yoshida">
+    <meta name="twitter:description" content="協力、1台で、オンライン。友達や家族と遊べるiOSゲームを探せます。">
+    <meta name="twitter:image" content="https://ibuki3322-max.github.io/assets/tether-up-hero.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{margin:0;background:#f5f5f7;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Hiragino Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+        a{color:inherit}
+        .container{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+        .site-header{position:sticky;top:0;z-index:10;height:52px;display:flex;align-items:center;background:rgba(255,255,255,.88);border-bottom:1px solid rgba(0,0,0,.08);backdrop-filter:blur(18px) saturate(180%)}
+        .header-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+        .brand{font-weight:700;font-size:.95rem;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+        .header-links{display:flex;align-items:center;gap:1.3rem}
+        .header-links a{text-decoration:none;font-size:.82rem;color:#6e6e73;font-weight:600;white-space:nowrap}
+        .header-links a:hover{color:#0071e3}
+        .header-links .active{color:#0071e3}
+        .header-links .store-button{padding:.42rem .9rem;border-radius:999px;background:#0071e3;color:white}
+        .feature{padding:2.2rem 0 2.1rem}
+        .feature-slider{position:relative;overflow:hidden;border-radius:28px;background:#bdece4;box-shadow:0 18px 36px rgba(32,100,106,.13);touch-action:pan-y}
+        .feature-slide{position:relative}
+        .feature-slide[hidden]{display:none}
+        .feature-link{position:relative;display:block;color:#173a43;text-decoration:none}
+        .feature-art{display:block;width:100%;height:auto;aspect-ratio:1672/940;object-fit:cover}
+        .feature-cta{position:absolute;left:2rem;bottom:1.5rem;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.55rem 1.1rem;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 5px 15px rgba(0,54,61,.12);font-size:.8rem;font-weight:700;transition:background .15s,transform .15s}
+        .feature-link:hover .feature-cta{background:#fff;transform:translateY(-2px)}
+        .feature-link:focus-visible,.feature-slider:focus-visible{outline:3px solid #0071e3;outline-offset:-3px}
+        .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+        .browse{padding:1.1rem 0 4.5rem}
+        .section-top{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.1rem}
+        h2{font-size:1.55rem;letter-spacing:-.02em;margin:0}
+        .section-lead{margin:.15rem 0 0;color:#6e6e73;font-size:.9rem}
+        .result-count{color:#6e6e73;font-size:.82rem;white-space:nowrap}
+        .filters{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.5rem}
+        .filter{appearance:none;border:1px solid rgba(0,0,0,.11);background:#fff;color:#424246;padding:.58rem 1rem;border-radius:999px;font-family:inherit;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+        .filter:hover{border-color:#0071e3;color:#0071e3}
+        .filter[aria-pressed="true"]{background:#1d1d1f;color:#fff;border-color:#1d1d1f}
+        .filter:focus-visible,.game-actions a:focus-visible,.header-links a:focus-visible{outline:3px solid #75b9ff;outline-offset:3px}
+        .game-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+        .game-card{min-width:0;display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,.065);border-radius:22px;padding:1.25rem;box-shadow:0 4px 15px rgba(0,0,0,.035)}
+        .game-card[hidden]{display:none}
+        .game-head{display:flex;align-items:center;gap:.85rem;min-width:0}
+        .game-icon{flex:none;width:70px;height:70px;object-fit:cover;border-radius:17px;border:1px solid rgba(0,0,0,.06)}
+        .game-ident{min-width:0}
+        .game-ident h3{font-size:1rem;line-height:1.35;letter-spacing:-.01em;margin:0 0 .28rem;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+        .player-count{font-size:.76rem;color:#0071e3;font-weight:700}
+        .game-summary{font-size:.85rem;color:#56565b;line-height:1.65;margin:1rem 0;flex:1}
+        .game-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.1rem}
+        .game-external-links{display:flex;flex-wrap:wrap;gap:.35rem .9rem;margin:-.25rem 0 .9rem}
+        .game-external-links:empty{display:none}
+        .game-official-link,.game-android-test-link{color:#0071e3;font-size:.78rem;font-weight:700;text-decoration:none}
+        .game-android-test-link{color:#187149}
+        .game-official-link:hover,.game-android-test-link:hover{text-decoration:underline}
+        .game-official-link:focus-visible,.game-android-test-link:focus-visible{outline:3px solid #75b9ff;outline-offset:3px}
+        .mode-tag{font-size:.7rem;font-weight:700;border-radius:999px;padding:.27rem .55rem;background:#f1f3f5;color:#4e5561}
+        .mode-coop{background:#e7f5ee;color:#187149}.mode-local{background:#fff3df;color:#925a0c}.mode-online{background:#e9f2ff;color:#155aa5}.mode-versus{background:#f1edff;color:#6243a0}
+        .game-actions{display:flex;gap:.55rem}
+        .game-actions a{display:flex;align-items:center;justify-content:center;gap:.2rem;text-decoration:none;border-radius:999px;padding:.52rem .7rem;font-size:.78rem;font-weight:700;text-align:center}
+        .detail-link{background:#0071e3;color:#fff;flex:1}
+        .detail-link:hover{background:#0077ed}
+        .store-link{border:1px solid rgba(0,0,0,.13);color:#424246;flex:1}
+        .store-link:hover{background:#f5f5f7}
+        .site-footer{background:rgba(255,255,255,.7);border-top:1px solid rgba(0,0,0,.08);padding:2rem 0;color:#6e6e73;font-size:.78rem}
+        .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+        .footer-inner a{text-decoration:none;color:#0071e3}
+        @media(max-width:850px){.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+        @media(max-width:600px){.container{width:min(100% - 2rem,1120px)}.header-links{gap:.7rem}.header-links .home-link{display:none}.feature{padding:1.25rem 0 1rem}.feature-slider{border-radius:18px}.feature-cta{left:.75rem;bottom:.75rem;min-height:32px;padding:.35rem .7rem;font-size:.65rem}.game-grid{grid-template-columns:1fr}.section-top{align-items:start}.result-count{padding-top:.4rem}.browse{padding-bottom:3rem}}
+        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.filter,.feature-cta{transition:none}}
+    </style>
+</head>
+<body>
+    <header class="site-header"><div class="container header-inner">
+        <a class="brand" href="index.html">Ibuki Yoshida</a>
+        <nav class="header-links" aria-label="メインナビゲーション">
+            <a class="home-link" href="index.html">全アプリ一覧</a>
+            <a class="active" href="multiplayer.html" aria-current="page">みんなで遊ぶ</a>
+            <a class="store-button" href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer">App Store</a>
+        </nav>
+    </div></header>
+    <main>
+        <section class="feature"><div class="container"><div class="feature-slider" id="featureSlider" role="region" aria-roledescription="カルーセル" aria-label="注目のゲーム" aria-describedby="sliderHelp" tabindex="0">
+            <p class="visually-hidden" id="sliderHelp">左右キーまたは横スワイプでゲームを切り替えられます。</p>
+            <article class="feature-slide" data-slide>
+                <h1 class="visually-hidden">Tether Up!</h1>
+                <a class="feature-link" href="apps/6814103261.html" aria-label="Tether Up! の詳細を見る">
+                    <img class="feature-art" src="assets/tether-up-hero.webp" alt="Tether Up! ふたりで、どこまでも。赤と青のキャラクターがロープでつながり、空の足場を登る" width="1672" height="941" fetchpriority="high">
+                    <span class="feature-cta">ゲームを詳しく見る ↗</span>
+                </a>
+            </article>
+            <article class="feature-slide" data-slide hidden>
+                <h2 class="visually-hidden">Fit In</h2>
+                <a class="feature-link" href="apps/6792991286.html" aria-label="Fit In の詳細を見る">
+                    <img class="feature-art" src="assets/fit-in-hero.webp" alt="Fit In 壁のすき間を、すり抜けろ！青とピンクの四角いキャラクターが壁の穴を目指す" width="1672" height="941" loading="lazy">
+                    <span class="feature-cta">ゲームを詳しく見る ↗</span>
+                </a>
+            </article>
+            <article class="feature-slide" data-slide hidden>
+                <h2 class="visually-hidden">Cook Panic</h2>
+                <a class="feature-link" href="apps/6817883757.html" aria-label="Cook Panic の詳細を見る">
+                    <img class="feature-art" src="assets/cook-panic-hero.webp" alt="Cook Panic ふたりで回せ、ドタバタ厨房！二人のシェフが食材の準備と調理を分担する" width="1672" height="940" loading="lazy">
+                    <span class="feature-cta">ゲームを詳しく見る ↗</span>
+                </a>
+            </article>
+            <article class="feature-slide" data-slide hidden>
+                <h2 class="visually-hidden">Puffbound</h2>
+                <a class="feature-link" href="apps/6819507515.html" aria-label="Puffbound の詳細を見る">
+                    <img class="feature-art" src="assets/puffbound-hero.webp" alt="Puffbound ころがって、ふたりで越えよう。二つの丸いパフが空の足場で協力する" width="1672" height="941" loading="lazy">
+                    <span class="feature-cta">ゲームを詳しく見る ↗</span>
+                </a>
+            </article>
+            <article class="feature-slide" data-slide hidden>
+                <h2 class="visually-hidden">星の旅人</h2>
+                <a class="feature-link" href="apps/6816197714.html" aria-label="星の旅人 の詳細を見る">
+                    <img class="feature-art" src="assets/hoshi-no-tabibito-hero.webp" alt="星の旅人 友達と、星をめぐる旅へ。オレンジと青のケープの旅人が雲海に浮かぶ島を巡る" width="1672" height="941" loading="lazy">
+                    <span class="feature-cta">ゲームを詳しく見る ↗</span>
+                </a>
+            </article>
+        </div></div></section>
+        <section class="browse" aria-labelledby="browse-heading"><div class="container">
+            <div class="section-top"><div><h2 id="browse-heading">ゲームを探す</h2><p class="section-lead">遊び方で絞り込んで、気になる作品を見つけてください。</p></div><span class="result-count" id="resultCount" aria-live="polite">35作品</span></div>
+            <div class="filters" role="group" aria-label="遊び方で絞り込む">
+                <button class="filter" type="button" data-filter="all" aria-pressed="true">すべて</button>
+                <button class="filter" type="button" data-filter="coop" aria-pressed="false">協力して遊ぶ</button>
+                <button class="filter" type="button" data-filter="local" aria-pressed="false">1台で遊ぶ</button>
+                <button class="filter" type="button" data-filter="versus" aria-pressed="false">対戦する</button>
+            </div>
+            <div class="game-grid" id="gameGrid"><!-- BEGIN GENERATED GAME CARDS -->
+<article class="game-card" data-modes="coop online">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f9/29/5a/f9295aff-6fb9-686f-d0db-01480ccec4d4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Puffbound ふたりで協力ころころアクション</h3><span class="player-count">2人で協力</span></div>
+        </div>
+        <p class="game-summary">まんまるのパフを転がし、投げ合いながら仕掛けを解く物理アクション。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-online">オンライン</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6819507515.html" aria-label="Puffbound ふたりで協力ころころアクション の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/puffbound-%E3%81%B5%E3%81%9F%E3%82%8A%E3%81%A7%E5%8D%94%E5%8A%9B%E3%81%93%E3%82%8D%E3%81%93%E3%82%8D%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/id6819507515?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Puffbound ふたりで協力ころころアクション をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="coop online">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/19/10/3c/19103cbb-44b4-a77e-f18d-b21a5fdc223d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Cook Panic - 協力クッキングアクション</h3><span class="player-count">2人で協力</span></div>
+        </div>
+        <p class="game-summary">食材の準備と調理を分担。ふたりで厨房を切り盛りするアクション。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-online">オンライン</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6817883757.html" aria-label="Cook Panic - 協力クッキングアクション の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/cook-panic-%E5%8D%94%E5%8A%9B%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/id6817883757?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Cook Panic - 協力クッキングアクション をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="coop online">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/8f/61/a68f6125-9c3a-9f60-e8d9-76595bfd5188/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>星の旅人 - 空を飛ぶ協力アドベンチャー</h3><span class="player-count">2〜4人</span></div>
+        </div>
+        <p class="game-summary">空の島々を巡り、仲間とクリスタルを集めて星の門をひらく冒険。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-online">オンライン</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6816197714.html" aria-label="星の旅人 - 空を飛ぶ協力アドベンチャー の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E6%98%9F%E3%81%AE%E6%97%85%E4%BA%BA-%E7%A9%BA%E3%82%92%E9%A3%9B%E3%81%B6%E5%8D%94%E5%8A%9B%E3%82%A2%E3%83%89%E3%83%99%E3%83%B3%E3%83%81%E3%83%A3%E3%83%BC/id6816197714?uo=4" target="_blank" rel="noopener noreferrer" aria-label="星の旅人 - 空を飛ぶ協力アドベンチャー をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="coop online">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/d2/1a/61d21a60-9293-a802-a078-7a2d811f335b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Tether Up! - ロープで登る協力ゲーム</h3><span class="player-count">2人で協力</span></div>
+        </div>
+        <p class="game-summary">一本のロープでつながった相棒と、息を合わせて高みを目指す。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-online">オンライン</span></div>
+        <div class="game-external-links"><a class="game-official-link" href="https://tether-up.pages.dev/" target="_blank" rel="noopener noreferrer">公式サイト ↗</a><a class="game-android-test-link" href="https://tether-up.pages.dev/android/" target="_blank" rel="noopener noreferrer">Androidテスター案内 ↗</a></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6814103261.html" aria-label="Tether Up! - ロープで登る協力ゲーム の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/tether-up-%E3%83%AD%E3%83%BC%E3%83%97%E3%81%A7%E7%99%BB%E3%82%8B%E5%8D%94%E5%8A%9B%E3%82%B2%E3%83%BC%E3%83%A0/id6814103261?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Tether Up! - ロープで登る協力ゲーム をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="coop local online">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/08/5f/2f/085f2fde-7f84-d4c9-1832-dd1b95359786/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>価値ズレ！ - 価値観協力オンラインゲーム</h3><span class="player-count">最大8人・1台でも</span></div>
+        </div>
+        <p class="game-summary">みんなの価値観を予想し、すり合わせてクリアを目指すパーティーゲーム。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-local">1台で</span><span class="mode-tag mode-online">オンライン</span></div>
+        <div class="game-external-links"><a class="game-official-link" href="https://kachizure.pages.dev/" target="_blank" rel="noopener noreferrer">公式サイト ↗</a><a class="game-android-test-link" href="https://kachizure.pages.dev/android/" target="_blank" rel="noopener noreferrer">Androidテスター案内 ↗</a></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6787983567.html" aria-label="価値ズレ！ - 価値観協力オンラインゲーム の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E4%BE%A1%E5%80%A4%E3%82%BA%E3%83%AC-%E4%BE%A1%E5%80%A4%E8%A6%B3%E5%8D%94%E5%8A%9B%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0/id6787983567?uo=4" target="_blank" rel="noopener noreferrer" aria-label="価値ズレ！ - 価値観協力オンラインゲーム をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="coop online versus">
+        <div class="game-head">
+            <img src="assets/fit-in-icon.webp" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Fit In</h3><span class="player-count">協力・対戦</span></div>
+        </div>
+        <p class="game-summary">迫る壁をかわすアクション。友達とのオンライン対戦や協力プレイに対応。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6792991286.html" aria-label="Fit In の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/fit-in/id6792991286?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Fit In をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="local online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/c5/e5/81c5e539-2767-f867-4b90-888c06245d09/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>イントロキング - 音楽イントロクイズ</h3><span class="player-count">1台で2〜6人</span></div>
+        </div>
+        <p class="game-summary">イントロを聞いて曲名を早押し。1台のiPhoneでパーティー対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-local">1台で</span><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6793203167.html" aria-label="イントロキング - 音楽イントロクイズ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%82%A4%E3%83%B3%E3%83%88%E3%83%AD%E3%82%AD%E3%83%B3%E3%82%B0-%E9%9F%B3%E6%A5%BD%E3%82%A4%E3%83%B3%E3%83%88%E3%83%AD%E3%82%AF%E3%82%A4%E3%82%BA/id6793203167?uo=4" target="_blank" rel="noopener noreferrer" aria-label="イントロキング - 音楽イントロクイズ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="coop local online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/67/30/ed673035-e7b8-39eb-34b6-8c9dc98c9b99/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>オエカキング - お絵描きパーティーゲーム</h3><span class="player-count">2〜8人</span></div>
+        </div>
+        <p class="game-summary">お題の絵を描いて投票。協力イラストではふたりで一枚を完成させる。</p>
+        <div class="game-tags"><span class="mode-tag mode-coop">協力</span><span class="mode-tag mode-local">1台で</span><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6790299876.html" aria-label="オエカキング - お絵描きパーティーゲーム の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%82%AA%E3%82%A8%E3%82%AB%E3%82%AD%E3%83%B3%E3%82%B0-%E3%81%8A%E7%B5%B5%E6%8F%8F%E3%81%8D%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%83%BC%E3%82%B2%E3%83%BC%E3%83%A0/id6790299876?uo=4" target="_blank" rel="noopener noreferrer" aria-label="オエカキング - お絵描きパーティーゲーム をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="local online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/51/07/07/510707f2-ec8e-922d-278b-5a4b34d64927/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>常識王 - みんなで早押しクイズ</h3><span class="player-count">1台で最大4人</span></div>
+        </div>
+        <p class="game-summary">4択クイズを早押し。家族や友達と同じ画面でも対戦できる。</p>
+        <div class="game-tags"><span class="mode-tag mode-local">1台で</span><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6796584529.html" aria-label="常識王 - みんなで早押しクイズ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E5%B8%B8%E8%AD%98%E7%8E%8B-%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A7%E6%97%A9%E6%8A%BC%E3%81%97%E3%82%AF%E3%82%A4%E3%82%BA/id6796584529?uo=4" target="_blank" rel="noopener noreferrer" aria-label="常識王 - みんなで早押しクイズ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="local online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3b/00/5b/3b005b7f-8afa-a2cb-0770-4eec7082cc64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>みんなdeワード人狼</h3><span class="player-count">3〜8人</span></div>
+        </div>
+        <p class="game-summary">言葉のズレから人狼を探す会話ゲーム。端末を回して遊ぶこともできる。</p>
+        <div class="game-tags"><span class="mode-tag mode-local">1台で</span><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6788681607.html" aria-label="みんなdeワード人狼 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%81%BF%E3%82%93%E3%81%AAde%E3%83%AF%E3%83%BC%E3%83%89%E4%BA%BA%E7%8B%BC/id6788681607?uo=4" target="_blank" rel="noopener noreferrer" aria-label="みんなdeワード人狼 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="local online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/a0/b9/93a0b91a-1990-deba-25b3-057713f62159/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>お絵描きタワーバトル</h3><span class="player-count">1台で対戦</span></div>
+        </div>
+        <p class="game-summary">自分で描いた形を積み上げて勝負。端末を交互に使って対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-local">1台で</span><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6788985782.html" aria-label="お絵描きタワーバトル の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%81%8A%E7%B5%B5%E6%8F%8F%E3%81%8D%E3%82%BF%E3%83%AF%E3%83%BC%E3%83%90%E3%83%88%E3%83%AB/id6788985782?uo=4" target="_blank" rel="noopener noreferrer" aria-label="お絵描きタワーバトル をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fd/56/dd/fd56dd67-7451-adb2-20e5-2da6e8798fb5/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>BLASTLOOP - ふっとばし対戦アクション</h3><span class="player-count">2〜4人</span></div>
+        </div>
+        <p class="game-summary">撃って、ためて、場外へ吹き飛ばす。短いラウンドで盛り上がる対戦アクション。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6813950923.html" aria-label="BLASTLOOP - ふっとばし対戦アクション の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/blastloop-%E3%81%B5%E3%81%A3%E3%81%A8%E3%81%B0%E3%81%97%E5%AF%BE%E6%88%A6%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3/id6813950923?uo=4" target="_blank" rel="noopener noreferrer" aria-label="BLASTLOOP - ふっとばし対戦アクション をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/e8/19/68e81940-c4c5-9149-662e-fee4a7039ffa/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Kokodoko - 現在地を当てろ</h3><span class="player-count">2〜8人</span></div>
+        </div>
+        <p class="game-summary">景色の手がかりから現在地を推理。友達とスコアを競う。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6810112717.html" aria-label="Kokodoko - 現在地を当てろ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/kokodoko-%E7%8F%BE%E5%9C%A8%E5%9C%B0%E3%82%92%E5%BD%93%E3%81%A6%E3%82%8D/id6810112717?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Kokodoko - 現在地を当てろ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/1b/94/961b948f-a3f2-1dc9-8925-87b616416554/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>らくがきアリーナ - お絵かきバトル</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">描いた落書きがファイターに。合言葉で友達とのバトルも。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6821008397.html" aria-label="らくがきアリーナ - お絵かきバトル の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%82%89%E3%81%8F%E3%81%8C%E3%81%8D%E3%82%A2%E3%83%AA%E3%83%BC%E3%83%8A-%E3%81%8A%E7%B5%B5%E3%81%8B%E3%81%8D%E3%83%90%E3%83%88%E3%83%AB/id6821008397?uo=4" target="_blank" rel="noopener noreferrer" aria-label="らくがきアリーナ - お絵かきバトル をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/3f/92/843f92f1-d024-1129-502a-cf7b09366f3d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>WordBlade - 文字で戦うコマバトル</h3><span class="player-count">1対1</span></div>
+        </div>
+        <p class="game-summary">好きな一文字をコマにして戦う。部屋のコードで友達と勝負。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6819836440.html" aria-label="WordBlade - 文字で戦うコマバトル の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/wordblade-%E6%96%87%E5%AD%97%E3%81%A7%E6%88%A6%E3%81%86%E3%82%B3%E3%83%9E%E3%83%90%E3%83%88%E3%83%AB/id6819836440?uo=4" target="_blank" rel="noopener noreferrer" aria-label="WordBlade - 文字で戦うコマバトル をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/ae/c8/a4aec899-94b1-2a4f-8d7d-49d6c8a8f3d3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Over3 - 三目並べ</h3><span class="player-count">1対1</span></div>
+        </div>
+        <p class="game-summary">大きさの違う駒をかぶせて読み合う、進化した三目並べ。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6814723060.html" aria-label="Over3 - 三目並べ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/over3-%E4%B8%89%E7%9B%AE%E4%B8%A6%E3%81%B9/id6814723060?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Over3 - 三目並べ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/9b/a1/b19ba196-2742-34a7-8d8d-5382166d601b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>VoiceFight - 声でバトル</h3><span class="player-count">1対1</span></div>
+        </div>
+        <p class="game-summary">声を使ったミッションで勝負。離れた友達ともリアルタイム対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6812982525.html" aria-label="VoiceFight - 声でバトル の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/voicefight-%E5%A3%B0%E3%81%A7%E3%83%90%E3%83%88%E3%83%AB/id6812982525?uo=4" target="_blank" rel="noopener noreferrer" aria-label="VoiceFight - 声でバトル をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/4f/e7/fc4fe715-bd79-ed86-6fed-28a3ec4e3b2a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>ぷにまじ</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">数字のかたまりを弾いて合体。合言葉で友達と対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6802408989.html" aria-label="ぷにまじ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%81%B7%E3%81%AB%E3%81%BE%E3%81%98/id6802408989?uo=4" target="_blank" rel="noopener noreferrer" aria-label="ぷにまじ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/51/15/a35115fd-b6ec-9716-59cd-90d36a740855/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Hide in Art - かくれんぼ</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">絵画に隠れる側と見つける側に分かれて遊ぶかくれんぼ。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6787609279.html" aria-label="Hide in Art - かくれんぼ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/hide-in-art-%E3%81%8B%E3%81%8F%E3%82%8C%E3%82%93%E3%81%BC/id6787609279?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Hide in Art - かくれんぼ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b2/47/b0/b247b0c5-8d11-d951-2eee-84a8801a5c6f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>バドスマ - バドミントンオンライン対戦</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">シャトルを打ち合う駆け引き。Game Centerで友達と対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6790022776.html" aria-label="バドスマ - バドミントンオンライン対戦 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%83%90%E3%83%89%E3%82%B9%E3%83%9E-%E3%83%90%E3%83%89%E3%83%9F%E3%83%B3%E3%83%88%E3%83%B3%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%AF%BE%E6%88%A6/id6790022776?uo=4" target="_blank" rel="noopener noreferrer" aria-label="バドスマ - バドミントンオンライン対戦 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c4/d3/3d/c4d33d09-f1fe-3583-0510-50d06b623dc4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>オニラン！ - オンラインおにごっこ</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">逃げる4人と鬼1人の3D鬼ごっこ。友達とリアルタイムで遊べる。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6790093033.html" aria-label="オニラン！ - オンラインおにごっこ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%82%AA%E3%83%8B%E3%83%A9%E3%83%B3-%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%8A%E3%81%AB%E3%81%94%E3%81%A3%E3%81%93/id6790093033?uo=4" target="_blank" rel="noopener noreferrer" aria-label="オニラン！ - オンラインおにごっこ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/45/fc/c645fc52-3d30-fb1a-3924-5f38b3103bbb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>NGワードゲームオンライン</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">自分のNGワードを言わないように会話するトークゲーム。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6788844104.html" aria-label="NGワードゲームオンライン の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/ng%E3%83%AF%E3%83%BC%E3%83%89%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3/id6788844104?uo=4" target="_blank" rel="noopener noreferrer" aria-label="NGワードゲームオンライン をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/45/79/1f/45791f30-25b1-2955-cac9-4f54ee204982/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Paint Wars - 陣取りシューティング</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">フィールドを塗り合い、陣地の広さを競うシューティング。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6792534049.html" aria-label="Paint Wars - 陣取りシューティング の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/paint-wars-%E9%99%A3%E5%8F%96%E3%82%8A%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/id6792534049?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Paint Wars - 陣取りシューティング をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/62/9c/15/629c1566-9604-90da-35c6-6f4113cb50c9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Gun Battle</h3><span class="player-count">1対1</span></div>
+        </div>
+        <p class="game-summary">射撃の反動を使って立ち回る、手に汗握る1対1バトル。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6794691495.html" aria-label="Gun Battle の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/gun-battle/id6794691495?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Gun Battle をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/61/da/87/61da8770-12a1-9848-a098-ea4e9fea5b6c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>CardParty - オンライントランプゲーム集</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">大富豪などの定番トランプをオンラインでリアルタイム対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6790869389.html" aria-label="CardParty - オンライントランプゲーム集 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/cardparty-%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%88%E3%83%A9%E3%83%B3%E3%83%97%E3%82%B2%E3%83%BC%E3%83%A0%E9%9B%86/id6790869389?uo=4" target="_blank" rel="noopener noreferrer" aria-label="CardParty - オンライントランプゲーム集 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8b/d0/fb/8bd0fb44-2e32-6dec-7377-88786b2b9c96/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Wall Tactics 3D - オンライン対戦</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">壁を置いて相手の道をふさぐ、頭脳戦のボードゲーム。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6787207053.html" aria-label="Wall Tactics 3D - オンライン対戦 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/wall-tactics-3d-%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%AF%BE%E6%88%A6/id6787207053?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Wall Tactics 3D - オンライン対戦 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b4/bb/83/b4bb8378-aa53-a9ac-d321-6f07cf40e3d3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>PullBall - 引っ張りサッカー対戦</h3><span class="player-count">1対1</span></div>
+        </div>
+        <p class="game-summary">指で引っ張って離してシュート。リアルタイムのサッカー対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6787031419.html" aria-label="PullBall - 引っ張りサッカー対戦 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/pullball-%E5%BC%95%E3%81%A3%E5%BC%B5%E3%82%8A%E3%82%B5%E3%83%83%E3%82%AB%E3%83%BC%E5%AF%BE%E6%88%A6/id6787031419?uo=4" target="_blank" rel="noopener noreferrer" aria-label="PullBall - 引っ張りサッカー対戦 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/69/d5/6269d537-4c0f-804e-f081-00c106ab1190/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>ブロックグリッド 81 (BlockGrid 81)</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">同じ順番のブロックを積み、配置と判断力でスコアを競う。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6756016996.html" aria-label="ブロックグリッド 81 (BlockGrid 81) の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89-81-blockgrid-81/id6756016996?uo=4" target="_blank" rel="noopener noreferrer" aria-label="ブロックグリッド 81 (BlockGrid 81) をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/95/9d/21959d8f-bffb-902d-0d1f-a62581658b8d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>言葉の達人 - カタカナ禁止のワードゲーム</h3><span class="player-count">2〜4人</span></div>
+        </div>
+        <p class="game-summary">カタカナ語をカタカナなしで説明。離れた友達とワードゲーム。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6797199975.html" aria-label="言葉の達人 - カタカナ禁止のワードゲーム の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E8%A8%80%E8%91%89%E3%81%AE%E9%81%94%E4%BA%BA-%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A%E7%A6%81%E6%AD%A2%E3%81%AE%E3%83%AF%E3%83%BC%E3%83%89%E3%82%B2%E3%83%BC%E3%83%A0/id6797199975?uo=4" target="_blank" rel="noopener noreferrer" aria-label="言葉の達人 - カタカナ禁止のワードゲーム をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/63/42/bf/6342bfe6-a40f-e86b-6c04-1d76b4cef7a9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>無限にタップして世界一を目指すだけのゲーム</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">ひたすらタップして記録を競う、オンライン連打バトル。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6798262988.html" aria-label="無限にタップして世界一を目指すだけのゲーム の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E7%84%A1%E9%99%90%E3%81%AB%E3%82%BF%E3%83%83%E3%83%97%E3%81%97%E3%81%A6%E4%B8%96%E7%95%8C%E4%B8%80%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%99%E3%81%A0%E3%81%91%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0/id6798262988?uo=4" target="_blank" rel="noopener noreferrer" aria-label="無限にタップして世界一を目指すだけのゲーム をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/f5/ee/e6f5ee1d-f980-87bc-7886-335fb2f217e5/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>ヒット&amp;ブロー 数当てバトル</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">4桁の数字をヒントから推理。友達との読み合いも楽しめる。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6791228402.html" aria-label="ヒット&amp;ブロー 数当てバトル の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E3%83%92%E3%83%83%E3%83%88-%E3%83%96%E3%83%AD%E3%83%BC-%E6%95%B0%E5%BD%93%E3%81%A6%E3%83%90%E3%83%88%E3%83%AB/id6791228402?uo=4" target="_blank" rel="noopener noreferrer" aria-label="ヒット&amp;ブロー 数当てバトル をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/dd/c0/a3ddc0b7-2f3f-b7ba-e636-54689071384d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>Voxelworms.io - ボクセルワームズ</h3><span class="player-count">最大8人</span></div>
+        </div>
+        <p class="game-summary">ブロックを奪い合い、3分間を生き残るワーム対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6802207073.html" aria-label="Voxelworms.io - ボクセルワームズ の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/voxelworms-io-%E3%83%9C%E3%82%AF%E3%82%BB%E3%83%AB%E3%83%AF%E3%83%BC%E3%83%A0%E3%82%BA/id6802207073?uo=4" target="_blank" rel="noopener noreferrer" aria-label="Voxelworms.io - ボクセルワームズ をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/85/b2/9f/85b29f5e-40a5-39f1-7486-e357a470a82d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>大喜利キング - オンライン対戦</h3><span class="player-count">2〜4人</span></div>
+        </div>
+        <p class="game-summary">お題に一言で回答し、いちばん面白い答えを競う大喜利。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6797517642.html" aria-label="大喜利キング - オンライン対戦 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E5%A4%A7%E5%96%9C%E5%88%A9%E3%82%AD%E3%83%B3%E3%82%B0-%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%AF%BE%E6%88%A6/id6797517642?uo=4" target="_blank" rel="noopener noreferrer" aria-label="大喜利キング - オンライン対戦 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/f2/c3/5cf2c3af-e176-2a96-238d-955f81b3dd42/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>TUMU - ブロック積み上げ対戦ゲーム</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">タイミングよくブロックを積み、友達と高さを競う。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6802079307.html" aria-label="TUMU - ブロック積み上げ対戦ゲーム の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/tumu-%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E7%A9%8D%E3%81%BF%E4%B8%8A%E3%81%92%E5%AF%BE%E6%88%A6%E3%82%B2%E3%83%BC%E3%83%A0/id6802079307?uo=4" target="_blank" rel="noopener noreferrer" aria-label="TUMU - ブロック積み上げ対戦ゲーム をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<article class="game-card" data-modes="online versus">
+        <div class="game-head">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bc/e0/6d/bce06df0-7cb0-4535-7897-c42da9389465/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="" width="72" height="72" loading="lazy" class="game-icon">
+            <div class="game-ident"><h3>指打 - フリック入力オンライン対戦</h3><span class="player-count">オンライン対戦</span></div>
+        </div>
+        <p class="game-summary">フリック入力の腕前をリアルタイムで競うタイピング対戦。</p>
+        <div class="game-tags"><span class="mode-tag mode-online">オンライン</span><span class="mode-tag mode-versus">対戦</span></div>
+        <div class="game-external-links"></div>
+        <div class="game-actions">
+            <a class="detail-link" href="apps/6756776205.html" aria-label="指打 - フリック入力オンライン対戦 の詳細を見る">詳細を見る <span aria-hidden="true">↗</span></a>
+            <a class="store-link" href="https://apps.apple.com/jp/app/%E6%8C%87%E6%89%93-%E3%83%95%E3%83%AA%E3%83%83%E3%82%AF%E5%85%A5%E5%8A%9B%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E5%AF%BE%E6%88%A6/id6756776205?uo=4" target="_blank" rel="noopener noreferrer" aria-label="指打 - フリック入力オンライン対戦 をApp Storeで見る">App Store</a>
+        </div>
+    </article>
+<!-- END GENERATED GAME CARDS --></div>
+        </div></section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span>© 2026 Ibuki Yoshida</span><a href="index.html">全アプリ一覧に戻る</a></div></footer>
+    <script>
+        const slides = [...document.querySelectorAll('[data-slide]')];
+        const slider = document.getElementById('featureSlider');
+        let currentSlide = 0;
+        if (slides.length > 1) {
+            let autoplayTimer;
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const showSlide = index => {
+                currentSlide = (index + slides.length) % slides.length;
+                slides.forEach((slide, i) => { slide.hidden = i !== currentSlide; });
+                slides[(currentSlide + 1) % slides.length].querySelector('img').loading = 'eager';
+            };
+            const stopAutoplay = () => clearInterval(autoplayTimer);
+            const startAutoplay = () => {
+                stopAutoplay();
+                if (!reduceMotion.matches && !document.hidden && !slider.matches(':hover') && !slider.contains(document.activeElement)) {
+                    autoplayTimer = setInterval(() => showSlide(currentSlide + 1), 7000);
+                }
+            };
+            const navigate = offset => { showSlide(currentSlide + offset); startAutoplay(); };
+            slider.addEventListener('keydown', event => {
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+                event.preventDefault();
+                navigate(event.key === 'ArrowRight' ? 1 : -1);
+            });
+            let touchStart = null;
+            let suppressClick = false;
+            slider.addEventListener('touchstart', event => {
+                if (event.touches.length === 1) touchStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+            }, { passive: true });
+            slider.addEventListener('touchend', event => {
+                if (!touchStart || !event.changedTouches.length) return;
+                const dx = event.changedTouches[0].clientX - touchStart.x;
+                const dy = event.changedTouches[0].clientY - touchStart.y;
+                touchStart = null;
+                if (Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy)) return;
+                suppressClick = true;
+                navigate(dx < 0 ? 1 : -1);
+                setTimeout(() => { suppressClick = false; }, 450);
+            }, { passive: true });
+            slider.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
+            slider.addEventListener('click', event => {
+                if (!suppressClick) return;
+                event.preventDefault();
+                event.stopPropagation();
+                suppressClick = false;
+            }, true);
+            slider.addEventListener('mouseenter', stopAutoplay);
+            slider.addEventListener('mouseleave', startAutoplay);
+            slider.addEventListener('focusin', stopAutoplay);
+            slider.addEventListener('focusout', event => { if (!slider.contains(event.relatedTarget)) startAutoplay(); });
+            document.addEventListener('visibilitychange', startAutoplay);
+            showSlide(0);
+            startAutoplay();
+        }
+        const buttons = [...document.querySelectorAll('[data-filter]')];
+        const cards = [...document.querySelectorAll('.game-card')];
+        const resultCount = document.getElementById('resultCount');
+        buttons.forEach(button => button.addEventListener('click', () => {
+            const selected = button.dataset.filter;
+            buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+            let visible = 0;
+            cards.forEach(card => {
+                const show = selected === 'all' || card.dataset.modes.split(' ').includes(selected);
+                card.hidden = !show;
+                if (show) visible++;
+            });
+            resultCount.textContent = `${visible}作品`;
+        }));
+    </script>
+</body>
+</html>

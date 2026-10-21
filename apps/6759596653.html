@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <title>Growbit - 習慣と継続 - iOSアプリ詳細 | Ibuki Yoshida</title>
+    <title>Growbit - 習慣と継続 - 公式アプリ詳細 | Ibuki Yoshida</title>
     <meta name="description" content="「今日は水をあげた？」——植物の成長を、あなたの毎日の楽しみに。">
-    <meta name="keywords" content="Growbit - 習慣と継続, iOSアプリ, iPhoneアプリ, Ibuki Yoshida, App Store">
+    <meta name="keywords" content="Growbit - 習慣と継続, iOSアプリ, Androidアプリ, iPhone, Ibuki Yoshida, App Store, Google Play">
     <meta name="author" content="Ibuki Yoshida">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ibuki3322-max.github.io/apps/6759596653.html">
-    <meta property="og:title" content="Growbit - 習慣と継続 - iOSアプリ詳細">
+    <meta property="og:title" content="Growbit - 習慣と継続 - 公式アプリ詳細">
     <meta property="og:description" content="「今日は水をあげた？」——植物の成長を、あなたの毎日の楽しみに。">
     <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/a4/26/b3a4260c-3594-80bd-b0cc-c7537d99490c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary">
-    <meta property="twitter:title" content="Growbit - 習慣と継続 - iOSアプリ詳細">
+    <meta property="twitter:title" content="Growbit - 習慣と継続 - 公式アプリ詳細">
     <meta property="twitter:description" content="「今日は水をあげた？」——植物の成長を、あなたの毎日の楽しみに。">
     <meta property="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/a4/26/b3a4260c-3594-80bd-b0cc-c7537d99490c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
 
@@ -91,21 +91,15 @@
         .nav-back:hover {
             opacity: 0.8;
         }
-        .brand-title {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: #1D1D1F;
-            text-decoration: none;
-        }
         .btn-store {
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            padding: 0.4rem 0.95rem;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
             border-radius: 9999px;
             background: #0071E3;
             color: #FFFFFF;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 600;
             text-decoration: none;
             transition: background 0.15s ease, transform 0.1s ease;
@@ -116,6 +110,45 @@
         }
         .btn-store:active {
             transform: scale(0.97);
+        }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #01875F;
+            color: #FFFFFF;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+            box-shadow: 0 1px 3px rgba(1, 135, 95, 0.2);
+        }
+        .btn-play:hover {
+            background: #019e70;
+        }
+        .btn-play:active {
+            transform: scale(0.97);
+        }
+
+        .btn-official {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            background: #FFFFFF;
+            color: #1D1D1F;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.15s ease, transform 0.1s ease;
+        }
+        .btn-official:hover {
+            background: rgba(0, 0, 0, 0.05);
         }
 
         /* App Header Section */
@@ -189,13 +222,14 @@
             font-size: 0.95rem;
             font-weight: 500;
             color: #0071E3;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.1rem;
         }
         .app-meta-pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
             align-items: center;
+            margin-bottom: 1.25rem;
         }
         @media (max-width: 640px) {
             .app-meta-pills {
@@ -209,6 +243,18 @@
             font-size: 0.75rem;
             color: #515154;
             font-weight: 500;
+        }
+
+        .action-buttons-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+        @media (max-width: 640px) {
+            .action-buttons-group {
+                justify-content: center;
+            }
         }
 
         /* Content Sections */
@@ -373,9 +419,13 @@
                     <span>すべてのアプリ一覧へ</span>
                 </a>
                 
-                <a href="https://apps.apple.com/jp/app/growbit-%E7%BF%92%E6%85%A3%E3%81%A8%E7%B6%99%E7%B6%9A/id6759596653?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">
-                    <span>App Storeで入手</span>
-                </a>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="font-size: 0.8rem; color: #86868B; text-decoration: none;">お問い合わせ</a>
+                    <a href="https://apps.apple.com/jp/app/growbit-%E7%BF%92%E6%85%A3%E3%81%A8%E7%B6%99%E7%B6%9A/id6759596653?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">
+                        <span>App Store</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -397,6 +447,15 @@
                     <span class="meta-pill">対象年齢: 4+</span>
                     <span class="meta-pill">バージョン: 1.0.1</span>
                     <span class="meta-pill">iOS 17.6 以降</span>
+                </div>
+
+                <div class="action-buttons-group">
+                    
+        <a href="https://apps.apple.com/jp/app/growbit-%E7%BF%92%E6%85%A3%E3%81%A8%E7%B6%99%E7%B6%9A/id6759596653?uo=4" target="_blank" rel="noopener noreferrer" class="btn-store">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.66-.8 1.11-1.92.99-3.04-1 .04-2.14.67-2.82 1.46-.59.69-1.12 1.83-.98 2.93 1.11.09 2.16-.57 2.81-1.35z"/></svg>
+            <span>App Store</span>
+        </a>
+    
                 </div>
             </div>
         </div>
@@ -493,6 +552,7 @@
                 </div>
                 <div>
                     <a href="../index.html" style="color: #0071E3; text-decoration: none; margin-right: 1rem;">公式サイト</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3NmPGv1L-OEMnfr9B0gs6ubL4zYANLWrEcu4JwKeKsnhr8Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="color: #0071E3; text-decoration: none; margin-right: 1rem;">お問い合わせ</a>
                     <a href="https://apps.apple.com/jp/developer/ibuki-yoshida/id1856209051" target="_blank" rel="noopener noreferrer" style="color: #0071E3; text-decoration: none;">App Store</a>
                 </div>
             </div>
